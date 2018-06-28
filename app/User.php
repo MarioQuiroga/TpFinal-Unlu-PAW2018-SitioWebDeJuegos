@@ -31,5 +31,14 @@ class User extends Authenticatable
         return $this->hasOne('App\Creador');
     }
 
+    public function jugadas(){
+        return $this->hasMany('App\Jugada');
+    }
+
+    public function valoracions(){
+        return $this->belongsToMany('App\Juego','valoracions')
+            ->withPivot('juego_id','usuario_id','estrellas');
+    }
+
 
 }
