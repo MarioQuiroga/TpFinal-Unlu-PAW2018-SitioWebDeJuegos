@@ -1,0 +1,7 @@
+var Game={
+
+    postScore: function () {
+
+    }
+
+};
