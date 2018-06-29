@@ -1,0 +1,26 @@
+.navbar {
+    color: aliceblue;
+    display: flex;
+    align-items: center;
+    /*background-color: #fff;*/
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+    font-family: 'Press Start 2P', cursive;
+}
+
+img.logo {
+    width: 94px;
+    height: 101px;
+    margin-left: 1rem;
+}
+h2 {
+    margin-left: 2rem;
+}
+
+
+div.logo {
+
+}
+
+div.nav-ul{
+    margin-left: auto;
+}
