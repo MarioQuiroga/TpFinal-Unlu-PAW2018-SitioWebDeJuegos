@@ -11,8 +11,17 @@
 |
 */
 
+use Illuminate\Support\Facades\Auth;
+
+Auth::routes();
+
 Route::get('/', function () {
     return view('welcome');
 });
-
+/*
+ */
 Route::post('/juegos/{id}/score','JugadaController@update');
+
+
+
+Route::get('/home', 'HomeController@index')->name('home');

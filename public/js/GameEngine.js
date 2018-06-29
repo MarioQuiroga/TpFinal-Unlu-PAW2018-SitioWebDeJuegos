@@ -4,7 +4,7 @@ var GameEngine={
     * funcion utilizada por los juegos para publicar el puntaje de una jugada
     *
     * */
-  publishScore: function (score) {
+  publishScore: function (score, callback) {
       let user = $("#user");
       let game = $('#juego');
       let postData = {
@@ -21,6 +21,9 @@ var GameEngine={
              //si falla
               if(result.error.name){
                   //avisar que no se guarda el puntaje
+              }
+              if(typeof callback==='function'){
+                  callback(result);
               }
           }
       });
