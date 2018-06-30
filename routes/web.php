@@ -13,15 +13,24 @@
 
 use Illuminate\Support\Facades\Auth;
 
-Auth::routes();
+
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
+
+
+
+/* --- Auth google -----*/
+Route::get('login/{provider}/redirect','Auth\LoginController@redirect');
+Route::get('login/{provider}/callback','Auth\LoginController@callback');
+
+
+Auth::routes();
 /*
  */
-Route::post('/juegos/{id}/score','JugadaController@update');
+Route::post('juegos/{id}/score','JugadaController@update');
 
 
 
-Route::get('/home', 'HomeController@index')->name('home');
+/*Route::get('/home', 'HomeController@index')->name('home');*/
