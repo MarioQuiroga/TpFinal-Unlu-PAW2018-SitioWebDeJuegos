@@ -20,7 +20,15 @@ h2 {
 div.logo {
 
 }
-
-div.nav-ul{
+div.ul-right-nav{
     margin-left: auto;
+}
+
+ul.nav-ul{
+    display: flex;
+    list-style-type: none;
+}
+
+ul.nav-ul>li{
+    margin-left: 7px;
 }

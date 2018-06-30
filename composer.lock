@@ -5,6 +5,7 @@
         "This file is @generated automatically"
     ],
     "content-hash": "fd5880d2e1128c3cbd13bc043535ea80",
+
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -367,6 +368,7 @@
             "time": "2018-02-07T20:20:57+00:00"
         },
         {
+
             "name": "guzzlehttp/psr7",
             "version": "1.4.2",
             "source": {
@@ -389,6 +391,7 @@
             },
             "require-dev": {
                 "phpunit/phpunit": "~4.0"
+
             },
             "type": "library",
             "extra": {
@@ -398,7 +401,9 @@
             },
             "autoload": {
                 "psr-4": {
+
                     "GuzzleHttp\\Psr7\\": "src/"
+
                 },
                 "files": [
                     "src/functions_include.php"
@@ -413,6 +418,7 @@
                     "name": "Michael Dowling",
                     "email": "mtdowling@gmail.com",
                     "homepage": "https://github.com/mtdowling"
+
                 },
                 {
                     "name": "Tobias Schultze",
@@ -458,10 +464,12 @@
                 "ext-gd": "to use GD library based image processing.",
                 "ext-imagick": "to use Imagick based image processing.",
                 "intervention/imagecache": "Caching extension for the Intervention Image library"
+
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
+
                     "dev-master": "2.4-dev"
                 },
                 "laravel": {
@@ -471,12 +479,15 @@
                     "aliases": {
                         "Image": "Intervention\\Image\\Facades\\Image"
                     }
+
                 }
             },
             "autoload": {
                 "psr-4": {
+
                     "Intervention\\Image\\": "src/Intervention/Image"
                 }
+
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -484,6 +495,7 @@
             ],
             "authors": [
                 {
+
                     "name": "Oliver Vogel",
                     "email": "oliver@olivervogel.com",
                     "homepage": "http://olivervogel.com/"
@@ -500,6 +512,7 @@
                 "watermark"
             ],
             "time": "2018-05-29T14:19:03+00:00"
+
         },
         {
             "name": "jakub-onderka/php-console-color",
@@ -728,6 +741,68 @@
             "time": "2018-06-20T14:21:11+00:00"
         },
         {
+            "name": "laravel/socialite",
+            "version": "v3.0.12",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel/socialite.git",
+                "reference": "b5f465847b1d637efa86bbfe2fc1c9d2bd12f60f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel/socialite/zipball/b5f465847b1d637efa86bbfe2fc1c9d2bd12f60f",
+                "reference": "b5f465847b1d637efa86bbfe2fc1c9d2bd12f60f",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "~6.0",
+                "illuminate/contracts": "~5.4",
+                "illuminate/http": "~5.4",
+                "illuminate/support": "~5.4",
+                "league/oauth1-client": "~1.0",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "~0.9",
+                "phpunit/phpunit": "~4.0|~5.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.0-dev"
+                },
+                "laravel": {
+                    "providers": [
+                        "Laravel\\Socialite\\SocialiteServiceProvider"
+                    ],
+                    "aliases": {
+                        "Socialite": "Laravel\\Socialite\\Facades\\Socialite"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Laravel\\Socialite\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylor@laravel.com"
+                }
+            ],
+            "description": "Laravel wrapper around OAuth 1 & OAuth 2 libraries.",
+            "keywords": [
+                "laravel",
+                "oauth"
+            ],
+            "time": "2018-06-01T15:06:47+00:00"
+        },
+        {
             "name": "laravel/tinker",
             "version": "v1.0.7",
             "source": {
@@ -873,6 +948,69 @@
                 "storage"
             ],
             "time": "2018-05-07T08:44:23+00:00"
+        },
+        {
+            "name": "league/oauth1-client",
+            "version": "1.7.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thephpleague/oauth1-client.git",
+                "reference": "fca5f160650cb74d23fc11aa570dd61f86dcf647"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/oauth1-client/zipball/fca5f160650cb74d23fc11aa570dd61f86dcf647",
+                "reference": "fca5f160650cb74d23fc11aa570dd61f86dcf647",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^6.0",
+                "php": ">=5.5.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "^0.9",
+                "phpunit/phpunit": "^4.0",
+                "squizlabs/php_codesniffer": "^2.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "League\\OAuth1\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ben Corlett",
+                    "email": "bencorlett@me.com",
+                    "homepage": "http://www.webcomm.com.au",
+                    "role": "Developer"
+                }
+            ],
+            "description": "OAuth 1.0 Client Library",
+            "keywords": [
+                "Authentication",
+                "SSO",
+                "authorization",
+                "bitbucket",
+                "identity",
+                "idp",
+                "oauth",
+                "oauth1",
+                "single sign on",
+                "trello",
+                "tumblr",
+                "twitter"
+            ],
+            "time": "2016-08-17T00:36:58+00:00"
         },
         {
             "name": "monolog/monolog",
