@@ -39,7 +39,7 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest')->except('logout');
+        /*$this->middleware('guest')->except('logout');*/
     }
 
     public static function redirect($provider){
@@ -63,8 +63,12 @@ class LoginController extends Controller
             ]);
         }
        Auth::login($user);
-        return redirect()->intended('/');
 
+        return view('home');
+
+        //return redirect()->('/');
+        //Esto funciona bien:
+        //dd(Auth::user());
 
         /*try {
             $googleUser = Socialite::driver('google')->stateless()->user();
