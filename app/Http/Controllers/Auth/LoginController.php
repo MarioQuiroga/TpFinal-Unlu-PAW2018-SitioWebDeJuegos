@@ -47,11 +47,11 @@ class LoginController extends Controller
     }
 
     public static function callback(Request $request,$provider){
-        $state = $request->get('state');
+       /* $state = $request->get('state');
         $request->session()->put('state',$state);
-        session()->regenerate();
+        session()->regenerate();*/
 
-        $gUser = Socialite::driver($provider)->user();
+        $gUser = Socialite::driver($provider)->stateless()->user();
         $user = User::where('email',$gUser->email)->first();
         if(!$user){
             $user = User::create([
@@ -64,9 +64,9 @@ class LoginController extends Controller
         }
        Auth::login($user);
 
-        return view('home');
+        //return view('index');
 
-        //return redirect()->('/');
+        return redirect()->to('/');
         //Esto funciona bien:
         //dd(Auth::user());
 

@@ -19,7 +19,8 @@ class CreateJuegosTable extends Migration
             $table->string('descripcion');
             $table->string('instrucciones');
             $table->string('titulo');
-            $table->string('imgFolder');
+            $table->string('nombre_server')->unique();
+            $table->string('avatar');
             $table->float('valoracion_promedio');
 
             $table->timestamps();
