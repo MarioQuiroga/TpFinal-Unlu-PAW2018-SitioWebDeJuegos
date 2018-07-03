@@ -1,14 +1,14 @@
 @extends('layouts.app')
 
 @section('css')
-    {{--<link rel="stylesheet" href="css/ej6.style.css">
-    <link rel="stylesheet" type="text/css" href="css/progres.css">--}}
+    <link rel="stylesheet" href="{{asset('css/index/carrusel.css')}}">
+    {{--<link rel="stylesheet" type="text/css" href="css/progres.css">--}}
 @endsection
 
 @section('scripts')
 
-    <script type="text/javascript" src="js/progres.js"></script>
-    <script type="text/javascript" src="js/carrusel.js"></script>
+    {{--<script type="text/javascript" src="js/progres.js"></script>--}}
+    <script type="text/javascript" src="{{asset('js/index/carrusel.js')}}"></script>
 
 @endsection
 
@@ -24,25 +24,27 @@
         {{ session('status') }}
     </div>
 @endif
-<section class="scrollProm" id="Scrolling Promos">
+<section class="carrusel" data-pos="0">
 
-    <div class="imag">
-        <img class="visible" id="promo1" src="imgs/slim.jpg" alt="slim powerfull laptop">
-    </div>
-    <div class="imag">
-        <img class="oculto" id="promo2" src="imgs/promoSlide.png" alt="slim powerfull laptop">
-    </div>
-    <div class="imag">
-        <img class="oculto" id="promo3" src="imgs/slim.jpg" alt="slim powerfull laptop">
-    </div>
-    <a class="prev" onclick="anteriorImagen()">&#10094;</a>
-    <a class="next" onclick="seguienteImagen()">&#10095;</a>
-
-    <div id="myProgress">
-        <div id="myBar">10%</div>
+    <div class="carrusel-imgs">
+        @foreach($featured as $feat)
+            <div class="feat-game fade">
+                <a href="">
+                    <img src="{{asset('img/'. $feat->nombre_server . '/'. $feat->avatar)}}" alt="{{$feat->titulo}}">
+                    <span class="game-title"> {{$feat->titulo}}</span>
+                </a>
+            </div>
+        @endforeach
     </div>
 
+    <a class="prev" onclick="mover(-1)">&#10094;</a>
+    <a class="next" onclick="mover(+1)">&#10095;</a>
 </section>
+<div class="carrusel-dots">
+    @for($i=1;$i<count($featured);$i++)
+        <span class="carrusel-dot" onclick="cambiarA({{$i}})"></span>
+    @endfor
+</div>
 <section class="featured-depts">
     <h2>Featured Departments <button onclick="personalizer.changeInformationView()"> Change View</button> </h2>
 

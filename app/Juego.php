@@ -6,6 +6,32 @@ use Illuminate\Database\Eloquent\Model;
 
 class Juego extends Model
 {
+
+    const featured =[
+        'Juego1',
+        'Juego2',
+        'Juego3'
+    ];
+
+    public static function getFeaturedGames()
+    {
+        $feat = [];
+        foreach (self::featured as $nombre){
+            array_push($feat,self::where('nombre_server',$nombre)->first());
+        }
+        return $feat;
+    }
+
+    public static function getHotGames()
+    {
+        return self::orderBy('valoracion_promedio','desc')->limit(9)->get();
+    }
+
+    public static function getIniciales()
+    {
+        return self::orderBy('fecha_creacion','desc')->limit(9)->get();
+    }
+
     public function tags(){
         return $this->belongsToMany('App\Tag');
     }
@@ -22,7 +48,5 @@ class Juego extends Model
         return $this->belongsToMany('App\User','valoracions')
             ->withPivot('juego_id','usuario_id','estrellas');
     }
-
-
 
 }

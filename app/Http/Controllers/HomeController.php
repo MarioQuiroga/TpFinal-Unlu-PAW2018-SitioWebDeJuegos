@@ -27,7 +27,7 @@ class HomeController extends Controller
         $featured = Juego::getFeaturedGames();
         $hot = Juego::getHotGames();
         $juegos = Juego::getIniciales();
-        return view('home')->with(compact('featured'))
+        return view('index')->with(compact('featured'))
                                 ->with(compact('hot')
                                 ->with(compact('juegos')));
     }

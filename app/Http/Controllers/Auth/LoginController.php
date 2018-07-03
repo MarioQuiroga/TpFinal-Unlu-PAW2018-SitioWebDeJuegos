@@ -64,9 +64,9 @@ class LoginController extends Controller
         }
        Auth::login($user);
 
-        //return view('index');
+        return view('index');
 
-        return redirect()->to('/');
+        //return redirect()->to('/');
         //Esto funciona bien:
         //dd(Auth::user());
 

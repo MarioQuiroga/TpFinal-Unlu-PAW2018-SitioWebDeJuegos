@@ -1,0 +1,94 @@
+* {box-sizing: border-box}
+.feat-game {display: none}
+div.feat-game>a>img {
+    vertical-align: middle;
+    width: 100%
+}
+
+/* Slideshow container */
+.carrusel {
+    max-width: 1000px;
+    /*position: relative;*/
+    margin: auto;
+}
+
+/* botones next y prev */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+}
+
+/* ponemos el boton de next hacia la derecha */
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+
+.prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+}
+
+/* titulo del juego */
+.game-title {
+    color: #f2f2f2;
+    font-size: 15px;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    text-align: center;
+}
+
+/* div de los dots*/
+.carrusel-dots{
+    text-align: center;
+}
+
+/* cada dot*/
+.carrusel-dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+    background-color: #717171;
+}
+
+/* animacion de fade */
+.fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+}
+
+@keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+}
+
+/* Para pantallas mas chicas achicamos el tamaño de letra */
+@media only screen and (max-width: 300px) {
+    .prev, .next,.text {font-size: 11px}
+}
