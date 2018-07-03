@@ -71,6 +71,12 @@ class DatabaseSeeder extends Seeder
             'instrucciones'=>'',
         ]);
 
+        //Asocio el juego de zombies con el tag "zombie" y el "defensa"
+        $juego1->tags()->attach([1,2]);
+        //al de pong el tag "dos jugadores"
+        $juego2->tags()->attach(3);
+        //al puzzle el de "puzzle"
+        $juego3->tags()->attach(4);
 
     }
 }

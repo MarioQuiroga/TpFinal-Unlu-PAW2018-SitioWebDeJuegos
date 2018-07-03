@@ -69,8 +69,8 @@ div.feat-game>a>img {
 /* cada dot*/
 .carrusel-dot {
     cursor: pointer;
-    height: 2rem;
-    width: 2rem;
+    height: 1.3rem;
+    width: 1.3rem;
     margin: 0 1rem;
     background-color: #0E0B16;
     border-radius: 50%;
