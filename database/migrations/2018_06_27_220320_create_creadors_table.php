@@ -15,7 +15,7 @@ class CreateCreadorsTable extends Migration
     {
         Schema::create('creadors', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('id_user');
+            $table->integer('user_id');
             $table->string('nombre');
             $table->timestamps();
         });

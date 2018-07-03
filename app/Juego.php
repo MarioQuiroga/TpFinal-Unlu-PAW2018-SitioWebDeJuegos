@@ -8,9 +8,9 @@ class Juego extends Model
 {
 
     const featured =[
-        'Juego1',
-        'Juego2',
-        'Juego3'
+        'juego1',
+        'juego2',
+        'juego3'
     ];
 
     public static function getFeaturedGames()

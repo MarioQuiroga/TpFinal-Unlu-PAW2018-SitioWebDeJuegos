@@ -8,11 +8,8 @@
     <div class="logo">
         <h2>KiwiJuegos</h2>
     </div>
-    @if(Auth::user())
-    <div class="logo">
-        {{Auth::user()->name}}
-    </div>
-    @endif
+
+
         {{-- TODO Hacer navbar escondible--}}
     <div class='ul-right-nav'>
         <ul class="nav-ul">

@@ -25,10 +25,10 @@ class HomeController extends Controller
     public function index()
     {
         $featured = Juego::getFeaturedGames();
-        $hot = Juego::getHotGames();
+        $hots = Juego::getHotGames();
         $juegos = Juego::getIniciales();
         return view('index')->with(compact('featured'))
-                                ->with(compact('hot')
-                                ->with(compact('juegos')));
+                                ->with(compact('hots'))
+                                ->with(compact('juegos'));
     }
 }
