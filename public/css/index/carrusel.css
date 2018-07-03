@@ -12,7 +12,7 @@
 div.feat-game>a{
     flex: 0 0 50px;
     border-radius: 3px;
-    transition: transform .25s;
+    transition: transform 0.55s;
 }
 div.feat-game>a>img {
     vertical-align: middle;

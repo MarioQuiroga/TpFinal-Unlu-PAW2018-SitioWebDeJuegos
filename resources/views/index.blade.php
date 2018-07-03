@@ -6,16 +6,13 @@
 @endsection
 
 @section('scripts')
-
-    {{--<script type="text/javascript" src="js/progres.js"></script>--}}
-    <script type="text/javascript" src="{{asset('js/index/carrusel.js')}}"></script>
+        <script type="text/javascript" src="{{asset('js/index/carrusel.js')}}"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             Carrusel.init();
         });
 
     </script>
-
 @endsection
 
 @section('meta')
@@ -52,11 +49,7 @@
     </div>
     {{--<a class="next" onclick="Carrusel.mover(+1)">&#10095;</a>--}}
 </section>
-
-<div class="sword-separator">
-    <img src="{{asset('img/swordIzqTrans.png')}}" alt="sword-separator">
-    <img src="{{asset('img/swordDerTrans.png')}}" alt="sword-separator">
-</div>
+@include('utils.separador')
 <section class="hot-games">
     <h1 style="color: firebrick">De aqui en adelante estamos construyendo...</h1>
     <h2>Hot Games</h2>
@@ -71,10 +64,7 @@
     @endforeach
     </div>
 </section>
-<div class="sword-separator">
-    <img src="{{asset('img/swordIzqTrans.png')}}" alt="sword-separator">
-    <img src="{{asset('img/swordDerTrans.png')}}" alt="sword-separator">
-</div>
+@include('utils.separador')
 <section class="container">
     <img class="brand-logos" src="imgs/brandLogos.jpg" alt="brand logos">
 </section>
