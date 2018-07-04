@@ -1,6 +1,8 @@
 body{
-    margin: 25px;
+    font-family: 'Press Start 2P', serif;
+    /*margin: 25px;*/
     background-color: #0E0B16;
+/*    padding: 5px;*/
 }
 
 
@@ -10,4 +12,24 @@ main {
     background: linear-gradient(141deg, #808080 0%, #8D8D8D 51%, #808080 75%);
     color: black;
     margin-bottom: 30px;
+    border-radius: 0.6rem;
+}
+
+
+
+
+
+/*=== Separador de espadas ===*/
+.sword-separator {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.sword-separator>img{
+    margin: 0;
+    padding: 0;
+    width: 20%;
+    height: auto;
 }
