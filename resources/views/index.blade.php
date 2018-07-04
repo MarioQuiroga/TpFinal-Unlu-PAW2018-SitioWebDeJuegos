@@ -98,7 +98,7 @@
             </li>
             @foreach($mainTags as $tag)
                 <li>
-                    <span class="tagFilter"onclick="BuscadorJuegos.tagFilter({{$tag->nombre}})">{{$tag->nombre}}</span>
+                    <span class="tagFilter" onclick="BuscadorJuegos.tagFilter({{$tag->nombre}})">{{$tag->nombre}}</span>
                 </li>
             @endforeach
         </ul>
