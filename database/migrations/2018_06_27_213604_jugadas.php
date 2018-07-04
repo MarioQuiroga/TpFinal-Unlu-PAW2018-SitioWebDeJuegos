@@ -16,7 +16,7 @@ class Jugadas extends Migration
         Schema::create('jugadas', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('juego_id');
-            $table->integer('usuario_id');
+            $table->integer('user_id');
             $table->integer('puntaje');
             $table->timestamp('fecha');
             $table->timestamps();
