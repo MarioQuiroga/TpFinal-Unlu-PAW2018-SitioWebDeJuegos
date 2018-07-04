@@ -14,9 +14,10 @@
 use Illuminate\Support\Facades\Auth;
 
 
-
+/* --- INDEX --- */
 Route::get('/', 'HomeController@index');
-
+//Ajax request del buscador de juegos
+Route::get('/games/search','HomeController@search');
 
 
 /* --- Auth con otras aplicaciones, google, facebook etc -----*/

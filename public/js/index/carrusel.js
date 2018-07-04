@@ -1,5 +1,6 @@
 var Carrusel={
     gameIndex: 1,
+    mouseOver:false,
 
     avanzar:function () {
       Carrusel.mover(1);
@@ -34,9 +35,23 @@ var Carrusel={
 
     init:function () {
 
+        //Se muestra el primer game
         this.gameIndex=1;
         this.mostrarGame(this.gameIndex);
-        setInterval(this.avanzar,3000);
+        //Seteo el timer que mueve el carrusel
+        Carrusel.timer=setInterval(function () {
+            if(!Carrusel.mouseOver){
+                Carrusel.avanzar();
+            }
+        },3000);
+
+        //agrego los event listener para saber si esta en hover
+        $('div#carrusel-imgs').on('mouseover',function () {
+            Carrusel.mouseOver=true;
+        });
+        $('div#carrusel-imgs').on('mouseout',function () {
+            Carrusel.mouseOver=false;
+        })
     },
 };
 

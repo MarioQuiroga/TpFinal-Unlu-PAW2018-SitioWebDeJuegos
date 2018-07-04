@@ -3,23 +3,33 @@
 /* cada juego del carrusel*/
 .feat-game {
     display: none;
-    margin: auto;
+  /*  margin: auto;*/
+    margin-top: 1em;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    border-radius: 0.6em;
 
+}
+
+.feat-game:hover{
+    border: solid #cacaca;
 }
 div.feat-game>a{
     flex: 0 0 50px;
-    border-radius: 3px;
     transition: transform 0.55s;
+    width: 100%;
+    /*overflow: hidden;*/
+
 }
 div.feat-game>a>img {
     vertical-align: middle;
-    border-radius: 0.6rem;
-    max-width: 800px;
+    border-top-right-radius: 0.6rem;
+    border-top-left-radius: 0.6rem;
+    width: 100%;
+    /*max-width: 800px;
     height: auto;
-    margin: auto;
+    margin: auto;*/
 }
 
 /* titulo del juego */
@@ -29,7 +39,8 @@ div.feat-game>a>img {
     z-index: 1;
     background-color: #0E0B16;
     padding: 0.5rem;
-    border-radius: 0.6rem;
+    border-bottom-left-radius: 0.6rem;
+    border-bottom-right-radius: 0.6rem;
     font-family: 'Press Start 2P', cursive;
     font-size: 0.6rem;
     /*    padding: 8px 12px;
@@ -40,7 +51,10 @@ div.feat-game>a>img {
 
 /* Slideshow container */
 .carrusel {
-
+    width: 50%;
+    margin-top: 1em;
+    margin-left: auto;
+    margin-right: auto;
     /*position: relative;*/
 
 
@@ -52,18 +66,17 @@ div.feat-game>a>img {
     justify-content: center;
     overflow-x: hidden;
     display: flex;
-    width: 800px;
-    height: 500px;
+    /*width: 800px;
+    height: 500px;*/
     margin: 0rem auto;
 }
 
 
 
-
 /* div de los dots*/
 .carrusel-dots{
+    margin-top: 1em;
     text-align: center;
-    transform: translateY(-1rem);
 }
 
 /* cada dot*/

@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\HomeController;
+use App\Juego;
+use App\Tag;
 use App\User;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
@@ -42,11 +45,11 @@ class LoginController extends Controller
         /*$this->middleware('guest')->except('logout');*/
     }
 
-    public static function redirect($provider){
+    public function redirect($provider){
         return Socialite::driver($provider)->redirect();
     }
 
-    public static function callback(Request $request,$provider){
+    public function callback(Request $request,$provider){
        /* $state = $request->get('state');
         $request->session()->put('state',$state);
         session()->regenerate();*/
@@ -64,7 +67,15 @@ class LoginController extends Controller
         }
        Auth::login($user);
 
-        return view('index');
+
+        $featured = Juego::getFeaturedGames();
+        $hots = Juego::getHotGames();
+        $juegos = Juego::getIniciales();
+        $mainTags = Tag::getMainTags();
+        return view('index')->with(compact('featured'))
+            ->with(compact('hots'))
+            ->with(compact('juegos'))
+            ->with(compact('mainTags'));
 
         //return redirect()->to('/');
         //Esto funciona bien:

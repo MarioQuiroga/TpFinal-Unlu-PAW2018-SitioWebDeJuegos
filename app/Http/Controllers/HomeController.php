@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Juego;
+use App\Tag;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -26,9 +27,23 @@ class HomeController extends Controller
     {
         $featured = Juego::getFeaturedGames();
         $hots = Juego::getHotGames();
-        $juegos = Juego::getIniciales();
+        $juegos = Juego::orderBy('fecha_creacion','desc')->simplePaginate(9);
+        $mainTags = Tag::getMainTags();
         return view('index')->with(compact('featured'))
                                 ->with(compact('hots'))
-                                ->with(compact('juegos'));
+                                ->with(compact('juegos'))
+                                ->with(compact('mainTags'));
+    }
+
+    public function search(Request $request){
+        $searchStr = $request->input('searchGame');
+        $games = Juego::where('titulo','like','%'.$searchStr.'%')->orWhere('descripcion','like','%'.$searchStr.'%')->orWhere('nombre_server','like','%'.$searchStr.'%')->get();
+        if($searchStr){
+            $tags=Tag::where('nombre','%'.$searchStr.'%')->get();
+            foreach ($tags as $tag){
+                $games->concat($tag->juegos());
+            }
+            return response()->json($games->toArray());
+        }
     }
 }

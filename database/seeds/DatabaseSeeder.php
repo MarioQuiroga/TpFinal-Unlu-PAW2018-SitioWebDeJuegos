@@ -88,6 +88,8 @@ class DatabaseSeeder extends Seeder
             'fecha_creacion'=>'2018-07-02',
             'avatar'=>'juego4.png',
             'instrucciones'=>'',
+            'valoracion_promedio'=>4.5,
+
         ]);
         $juego5 =Juego::create([
             'creador_id'=>1,
@@ -97,6 +99,8 @@ class DatabaseSeeder extends Seeder
             'fecha_creacion'=>'2018-07-02',
             'avatar'=>'juego5.jpg',
             'instrucciones'=>'',
+            'valoracion_promedio'=>4.5,
+
         ]);
         $juego6 =Juego::create([
             'creador_id'=>1,
@@ -106,6 +110,8 @@ class DatabaseSeeder extends Seeder
             'fecha_creacion'=>'2018-07-02',
             'avatar'=>'juego6.png',
             'instrucciones'=>'',
+            'valoracion_promedio'=>4.5,
+
         ]);
 
         //Asocio el juego de zombies con el tag "zombie" y el "defensa"
