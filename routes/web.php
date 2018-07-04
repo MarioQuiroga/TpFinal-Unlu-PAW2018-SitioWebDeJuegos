@@ -32,5 +32,19 @@ Auth::routes();
 Route::post('juegos/{id}/score','JugadaController@update');
 
 
+/*--- Perfil de Usuario ---*/
+Route::get('user/{id}','UserController@show');
+
+Route::get('user/edit/{id}', 'UserController@edit');
+Route::post('user/edit/{id}', 'UserController@update');
+
+Route::get('register/dev/{id}', 'CreadorController@create'); //Registrarse como desarrollador
+Route::get('userDev/edit/{id}', 'CreadorController@edit'); //Editar perfir desarrollador
+Route::post('userDev/edit/{id}', 'CreadorController@update'); //Editar perfir desarrollador
+
+
+/*--- Juegos ---*/
+Route::get('juegos/{id}','JuegoController@show');
+
 
 /*Route::get('/home', 'HomeController@index')->name('home');*/
