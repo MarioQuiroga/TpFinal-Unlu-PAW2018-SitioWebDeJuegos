@@ -13,14 +13,19 @@ div.section-title>h1{
     margin-left: 8px;
 }
 
+a.minor-link{
+    margin-left: 2em;
+    font-size: xx-small;
+}
+
 .games-mosaico{
     /*margin-left: 10px;
     margin-right: 10px;*/
-    margin: 0 auto;
+    margin: auto auto;
     display: flex;
     text-align: center;
-    width: 90%;
-    justify-content: space-around;
+    width: 70%;
+    justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
 }
@@ -31,6 +36,8 @@ div.section-title>h1{
     border: solid #cacaca;
     border-radius: 0.5em;
     margin-bottom: 0.7em;
+    margin-left: auto;
+    margin-right: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -90,6 +97,10 @@ div.tags{
 .buscador-juegos{
     display: flex;
     /*flex-wrap: wrap;*/
+    width: 90%;
+}
+.buscador-juegos>div.games-mosaico{
+    /*justify-content: space-around;*/
     width: 90%;
 }
 .panel-control{
