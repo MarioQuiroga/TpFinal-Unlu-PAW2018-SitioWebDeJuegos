@@ -1,0 +1,135 @@
+* {box-sizing: border-box}
+
+/* cada juego del carrusel*/
+.feat-game {
+    display: none;
+    margin: auto;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+div.feat-game>a{
+    flex: 0 0 50px;
+    border-radius: 3px;
+    transition: transform 0.55s;
+}
+div.feat-game>a>img {
+    vertical-align: middle;
+    border-radius: 0.6rem;
+    max-width: 800px;
+    height: auto;
+    margin: auto;
+}
+
+/* titulo del juego */
+.game-title {
+   /* transform: translateY(-2rem);*/
+    color: #f2f2f2;
+    z-index: 1;
+    background-color: #0E0B16;
+    padding: 0.5rem;
+    border-radius: 0.6rem;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.6rem;
+    /*    padding: 8px 12px;
+        bottom: 8px;*/
+    width: 100%;
+    text-align: left;
+}
+
+/* Slideshow container */
+.carrusel {
+
+    /*position: relative;*/
+
+
+
+}
+
+.carrusel-imgs{
+    align-items: center;
+    justify-content: center;
+    overflow-x: hidden;
+    display: flex;
+    width: 800px;
+    height: 500px;
+    margin: 0rem auto;
+}
+
+
+
+
+/* div de los dots*/
+.carrusel-dots{
+    text-align: center;
+    transform: translateY(-1rem);
+}
+
+/* cada dot*/
+.carrusel-dot {
+    cursor: pointer;
+    height: 1.3rem;
+    width: 1.3rem;
+    margin: 0 1rem;
+    background-color: #0E0B16;
+    border-radius: 50%;
+    display: inline-block;
+
+    transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+    background-color: #f2f2f2;
+}
+
+/* animacion de fade */
+.fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+}
+
+@keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+}
+
+/* Para pantallas mas chicas achicamos el tamaño de letra */
+@media only screen and (max-width: 300px) {
+    .prev, .next,.text {font-size: 11px}
+}
+
+/*--------- Momentaneamente no utilizado--------*/
+/*
+/* botones next y prev */
+.prev, .next {
+    cursor: pointer;
+    position: relative;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+}
+
+/* ponemos el boton de next hacia la derecha */
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+
+.prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+}

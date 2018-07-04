@@ -1,0 +1,77 @@
+div.section-title{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+div.section-title>img{
+    width: 4%;
+    height: auto;
+}
+
+div.section-title>h1{
+    margin-left: 8px;
+}
+
+.games-mosaico{
+    /*margin-left: 10px;
+    margin-right: 10px;*/
+    margin: 0 auto;
+    display: flex;
+    text-align: center;
+    width: 90%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.game-box{
+
+    width: 30%;
+    border: solid #cacaca;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.5rem;
+    height: 300px;
+
+}
+
+.game-box:hover{
+    border-color: #0E0B16;
+}
+.game-box-img{
+    width: 100%;
+    flex-basis: 65%;
+    overflow: hidden;
+}
+
+.game-box>img{
+
+    display: block;
+    width: auto;
+    /*max-width: 125px;*/
+
+   /* height: 125px;
+    overflow: hidden;*/
+}
+
+.game-box>p{
+    flex-basis: 12%;
+    margin-top: 4px;
+}
+.game-box>span.valoracion{
+    flex-basis: 10%;
+}
+
+.tags{
+    flex-basis: 10%;
+    display: flex;
+    padding: 2px;
+    width: 100%;
+    background-color: #0E0B16;
+    border-radius: 0.1rem;
+    color: #cacaca;
+    justify-content: space-between;
+}
+

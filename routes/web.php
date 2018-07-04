@@ -15,13 +15,11 @@ use Illuminate\Support\Facades\Auth;
 
 
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', 'HomeController@index');
 
 
 
-/* --- Auth google -----*/
+/* --- Auth con otras aplicaciones, google, facebook etc -----*/
 Route::get('login/{provider}/redirect','Auth\LoginController@redirect');
 Route::get('login/{provider}/callback','Auth\LoginController@callback');
 

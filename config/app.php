@@ -168,6 +168,10 @@ return [
          * */
         //Laravel\Socialite\SocialiteServiceProvider::class,
 
+        /*
+         * Ide Helper
+         * */
+        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class
     ],
 
     /*

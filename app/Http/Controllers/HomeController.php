@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Juego;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -13,7 +14,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        /*$this->middleware('auth');*/
+        $this->middleware('guest');
     }
 
     /**
@@ -23,6 +24,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $featured = Juego::getFeaturedGames();
+        $hots = Juego::getHotGames();
+        $juegos = Juego::getIniciales();
+        return view('index')->with(compact('featured'))
+                                ->with(compact('hots'))
+                                ->with(compact('juegos'));
     }
 }
