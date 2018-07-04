@@ -26,14 +26,15 @@ div.section-title>h1{
 
 .game-box{
 
-    width: 30%;
+    width: 255px;
+    height: auto;
     border: solid #cacaca;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     border-radius: 0.5rem;
-    height: 300px;
+    /*height: 300px;*/
 
 }
 
@@ -46,10 +47,11 @@ div.section-title>h1{
     overflow: hidden;
 }
 
-.game-box>img{
+.game-box-img>img{
 
     display: block;
     width: auto;
+    border-radius: 0.5rem;
     /*max-width: 125px;*/
 
    /* height: 125px;

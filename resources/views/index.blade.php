@@ -36,7 +36,7 @@
         @foreach($featured as $feat)
             <div class="feat-game fade">
                 <a href="">
-                    <img src="{{asset('img/'. $feat->nombre_server . '/'. $feat->avatar)}}" alt="{{$feat->titulo}}">
+                    <img src="{{asset('img/'. $feat->nombre_server . '/'. $feat->featImage)}}" alt="{{$feat->titulo}}">
                 </a>
                 <span class="game-title"> <h3>{{$feat->titulo}}:</h3>{{$feat->descripcion}}</span>
             </div>

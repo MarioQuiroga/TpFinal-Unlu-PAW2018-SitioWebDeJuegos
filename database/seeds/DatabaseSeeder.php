@@ -28,6 +28,16 @@ class DatabaseSeeder extends Seeder
         $tag4 = Tag::create([
             'nombre'=>'puzzle',
         ]);
+        $tag5= Tag::create([
+            'nombre'=>'plataforma',
+        ]);
+        $tag6= Tag::create([
+            'nombre'=>'musica',
+        ]);
+        $tag7= Tag::create([
+            'nombre'=>'carreras',
+        ]);
+
 
         /* Usuario adm y creador*/
         $admUser = User::create([
@@ -59,7 +69,7 @@ class DatabaseSeeder extends Seeder
             'nombre_server'=>'juego2',
             'fecha_creacion'=>'2018-07-02',
             'instrucciones'=>'',
-            'avatar'=>'superPong.png',
+            'avatar'=>'pongAvt.jpg',
         ]);
         $juego3 =Juego::create([
             'creador_id'=>1,
@@ -67,16 +77,47 @@ class DatabaseSeeder extends Seeder
             'titulo'=>'Multi-Puzzle',
             'nombre_server'=>'juego3',
             'fecha_creacion'=>'2018-07-02',
-            'avatar'=>'puzzle.jpg',
+            'avatar'=>'puzzleAvt.jpg',
+            'instrucciones'=>'',
+        ]);
+        $juego4 =Juego::create([
+            'creador_id'=>1,
+            'descripcion'=>'mantén el pájaro con vida a lo largo de los niveles',
+            'titulo'=>'Flapmmo',
+            'nombre_server'=>'juego4',
+            'fecha_creacion'=>'2018-07-02',
+            'avatar'=>'juego4.png',
+            'instrucciones'=>'',
+        ]);
+        $juego5 =Juego::create([
+            'creador_id'=>1,
+            'descripcion'=>'Diviertete con los discos que tenemos para ti',
+            'titulo'=>'GimmeGimmeRecords',
+            'nombre_server'=>'juego5',
+            'fecha_creacion'=>'2018-07-02',
+            'avatar'=>'juego5.jpg',
+            'instrucciones'=>'',
+        ]);
+        $juego6 =Juego::create([
+            'creador_id'=>1,
+            'descripcion'=>'listo para las carreras?',
+            'titulo'=>'SC racing',
+            'nombre_server'=>'juego6',
+            'fecha_creacion'=>'2018-07-02',
+            'avatar'=>'juego6.png',
             'instrucciones'=>'',
         ]);
 
         //Asocio el juego de zombies con el tag "zombie" y el "defensa"
-        $juego1->tags()->attach([1,2]);
+        $juego1->tags()->attach([$tag1->id,$tag2->id]);
         //al de pong el tag "dos jugadores"
-        $juego2->tags()->attach(3);
+        $juego2->tags()->attach($tag3->id);
         //al puzzle el de "puzzle"
-        $juego3->tags()->attach(4);
+        $juego3->tags()->attach($tag4->id);
+        // y a los otros su respectivos
+        $juego4->tags()->attach($tag5->id);
+        $juego5->tags()->attach($tag6->id);
+        $juego6->tags()->attach($tag7->id);
 
     }
 }

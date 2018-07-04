@@ -7,17 +7,27 @@ use Illuminate\Database\Eloquent\Model;
 class Juego extends Model
 {
 
+    /*
+     * Deben asignarse nombre_server => nombre_imagen
+     *
+     * La imagen debe ser 1280*500
+     * */
     const featured =[
-        'juego1',
-        'juego2',
-        'juego3'
+        'juego1'=>'zombieFeat.jpg',
+        'juego2'=>'pongFeat.jpg',
+        'juego3'=>'puzzleFeat.jpg'
     ];
+    public $featImage;
 
     public static function getFeaturedGames()
     {
         $feat = [];
-        foreach (self::featured as $nombre){
-            array_push($feat,self::where('nombre_server',$nombre)->first());
+        foreach (self::featured as $nombre=>$img){
+            $game = self::where('nombre_server',$nombre)->first();
+            if($game!=null){
+                $game->featImage = $img;
+                array_push($feat,$game);
+            }
         }
         return $feat;
     }
