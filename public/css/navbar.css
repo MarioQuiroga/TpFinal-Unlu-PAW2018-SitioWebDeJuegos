@@ -2,6 +2,7 @@
     color: aliceblue;
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     /*background-color: #fff;*/
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
     font-family: 'Press Start 2P', cursive;

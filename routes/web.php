@@ -14,14 +14,13 @@
 use Illuminate\Support\Facades\Auth;
 
 
+/* --- INDEX --- */
+Route::get('/', 'HomeController@index');
+//Ajax request del buscador de juegos
+Route::get('/games/search','HomeController@search');
 
-Route::get('/', function () {
-    return view('home');
-});
 
-
-
-/* --- Auth google -----*/
+/* --- Auth con otras aplicaciones, google, facebook etc -----*/
 Route::get('login/{provider}/redirect','Auth\LoginController@redirect');
 Route::get('login/{provider}/callback','Auth\LoginController@callback');
 
@@ -31,6 +30,20 @@ Auth::routes();
  */
 Route::post('juegos/{id}/score','JugadaController@update');
 
+
+/*--- Perfil de Usuario ---*/
+Route::get('user/{id}','UserController@show');
+
+Route::get('user/edit/{id}', 'UserController@edit');
+Route::post('user/edit/{id}', 'UserController@update');
+
+Route::get('register/dev/{id}', 'CreadorController@create'); //Registrarse como desarrollador
+Route::get('userDev/edit/{id}', 'CreadorController@edit'); //Editar perfir desarrollador
+Route::post('userDev/edit/{id}', 'CreadorController@update'); //Editar perfir desarrollador
+
+
+/*--- Juegos ---*/
+Route::get('juegos/{id}','JuegoController@show');
 
 
 /*Route::get('/home', 'HomeController@index')->name('home');*/

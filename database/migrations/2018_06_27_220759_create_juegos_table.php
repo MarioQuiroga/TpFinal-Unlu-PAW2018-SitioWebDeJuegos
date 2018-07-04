@@ -15,11 +15,14 @@ class CreateJuegosTable extends Migration
     {
         Schema::create('juegos', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('id_creador');
+            $table->integer('creador_id');
             $table->string('descripcion');
             $table->string('instrucciones');
             $table->string('titulo');
-            $table->float('valoracion_promedio');
+            $table->string('nombre_server')->unique();
+            $table->string('avatar');
+            $table->float('valoracion_promedio')->default(5.0);
+            $table->date('fecha_creacion');
 
             $table->timestamps();
         });
