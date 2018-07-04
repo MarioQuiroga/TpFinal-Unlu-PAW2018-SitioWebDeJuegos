@@ -15,7 +15,7 @@ class Valoracions extends Migration
     {
         Schema::create('valoracions', function (Blueprint $table) {
             $table->integer('juego_id');
-            $table->integer('usuario_id');
+            $table->integer('user_id');
             $table->integer('estrellas');
             $table->timestamps();
         });

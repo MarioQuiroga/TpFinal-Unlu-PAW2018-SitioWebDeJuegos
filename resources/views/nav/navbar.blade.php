@@ -8,11 +8,8 @@
     <div class="logo">
         <h2>KiwiJuegos</h2>
     </div>
-    @if(Auth::user())
-    <div class="logo">
-        {{Auth::user()->name}}
-    </div>
-    @endif
+
+
         {{-- TODO Hacer navbar escondible--}}
     <div class='ul-right-nav'>
         <ul class="nav-ul">
@@ -26,7 +23,7 @@
                 </li>
             @else
                 <li class="nav-item dropdown">
-                    <a class="nav-link" href="#" role="button">
+                    <a class="nav-link" href="user/{{ Auth::user()->id }}" role="button">
                         {{ Auth::user()->name }} <span class="caret"></span>
                     </a>
 

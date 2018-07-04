@@ -1,0 +1,142 @@
+.profileFavorito{
+	display: grid;
+	grid-column: auto, auto;
+	grid-row: auto, auto;
+}
+
+.imgAvatar{
+	width: 200px;
+	height: 200px;
+	
+}
+
+.userAvatar{
+	/*flex-basis: 20%;*/
+	text-align: center;
+}
+
+.userData{
+	border-style: solid;
+	border-width: 2px;
+	margin: 20px;
+	padding: 10px;
+	flex-basis: 80%;	
+}
+
+.row{
+	display: flex;
+}
+
+.columnActivity{
+	flex-basis: 30%;	
+	border: solid;	
+	border-width: 2px;
+	border-radius: 10px;
+	/*height: 500px;*/
+	background-color: #D3D3D3;
+	margin: 5px;
+}
+
+.columnFavoritos{
+	border: solid;	
+	border-width: 2px;
+	flex-basis: 70%;
+	border-radius: 10px;
+	/*height: 500px;*/
+	background-color: #D3D3D3;
+	margin: 5px;
+}
+
+.devButton{
+	float: right;
+}
+ .button{
+ 	padding: 10px;
+ 	border-radius: 5px;
+ 	background-color: #006400;
+ 	text-decoration: none;
+ 	color: black;
+ }
+
+ button a{
+ 	text-decoration: none;
+ 	color: black;
+ }
+
+ .button:hover{
+ 	cursor: pointer;
+ 	background-color: 	#32CD32;
+ }
+
+ .userDataForm{
+ 	display: flex;
+	border-style: solid;
+	border-radius: 5px;
+	border-width: 2px;
+	margin: 20px;
+	padding: 10px;
+	
+
+ }
+ .editAvatar{
+ 	border-style: dotted;
+ 	border-width: 2px;
+ 	border-radius: 5px;
+ 	display: block;
+ 	text-align: center;
+ 	padding: 10px;
+
+ }
+
+.formData{
+	display: block;
+	padding: 10px;
+}
+
+
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+#inputFile {
+  visibility: hidden;
+  width: 0;
+  position: relative;
+}
+
+#inputFile::before {
+  content: 'Editar';
+  
+  background: -webkit-linear-gradient(top, #f9f9f9, #e3e3e3);
+  border: 1px solid #999;
+  border-radius: 3px;
+  padding: 5px 8px;
+  outline: none;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  cursor: pointer;
+  text-shadow: 1px 1px #fff;
+  font-weight: 700;
+  font-size: 10pt;
+  visibility: visible;
+  position: relative;
+}
+#inputFile:hover::before {
+  border-color: black;
+}
+
+#inputFile:active::before {
+  background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+}
+
+.inputFileDiv{
+	text-align: left;
+	height: 20px;
+	width: 200px;
+}
