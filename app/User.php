@@ -33,7 +33,7 @@ class User extends Authenticatable
     }
 
     public function jugadas(){
-        return $this->hasMany('App\Jugada');
+        return $this->hasMany('App\Jugada')->get();
     }
 
     public function valoracions(){
@@ -49,11 +49,11 @@ class User extends Authenticatable
         $aux = $this->jugadas();
         $jugadas = [];
         if (isset($aux)){
-            for ($i=0; $i < $aux->count(); $i++) { 
-                $jugadas[i]['fecha'] = $aux[i]->fecha;
-                $jugadas[i]['juego_id'] = $aux[i]->juego_id;
-                $jugadas[i]['name'] = (Juego::where('juego_id',$aux[i]->juego_id))->titulo;
-                $jugadas[i]['puntaje'] = $aux[i]->puntaje;    
+            for ($i=0; $i < count($aux); $i++) {
+                $jugadas[$i]['fecha'] = $aux[$i]->fecha;
+                $jugadas[$i]['juego_id'] = $aux[$i]->juego_id;
+                $jugadas[$i]['name'] = (Juego::where('juego_id',$aux[$i]->juego_id))->titulo;
+                $jugadas[$i]['puntaje'] = $aux[$i]->puntaje;
             }            
         }
         

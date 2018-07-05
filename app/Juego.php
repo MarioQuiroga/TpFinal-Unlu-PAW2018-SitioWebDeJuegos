@@ -43,20 +43,20 @@ class Juego extends Model
     }
 
     public function tags(){
-        return $this->belongsToMany('App\Tag')->get();
+        return $this->belongsToMany('App\Tag');
     }
 
     public function creador(){
-        return $this->belongsTo('App\Creador')->get();
+        return $this->belongsTo('App\Creador');
     }
 
     public function comentarios(){
-        return $this->hasMany('App\Comentario')->get();
+        return $this->hasMany('App\Comentario');
     }
 
     public function valoracions(){
         return $this->belongsToMany('App\User','valoracions')
-            ->withPivot('juego_id','usuario_id','estrellas')->get();
+            ->withPivot('juego_id','usuario_id','estrellas');
     }
 
     public function toArray()
