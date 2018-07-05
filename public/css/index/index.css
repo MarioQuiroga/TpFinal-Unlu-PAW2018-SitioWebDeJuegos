@@ -43,6 +43,8 @@ a.minor-link{
     justify-content: center;
     align-items: center;
     word-break: break-all;
+    cursor: pointer;
+
     /*height: 300px;*/
 }
 @media only screen and (max-width: 600px) {

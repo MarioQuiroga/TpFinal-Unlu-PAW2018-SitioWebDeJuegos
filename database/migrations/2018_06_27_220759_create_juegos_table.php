@@ -21,6 +21,7 @@ class CreateJuegosTable extends Migration
             $table->string('titulo');
             $table->string('nombre_server')->unique();
             $table->string('avatar');
+            $table->integer('cant_valoraciones')->default(1);
             $table->float('valoracion_promedio')->default(5.0);
             $table->date('fecha_creacion');
 

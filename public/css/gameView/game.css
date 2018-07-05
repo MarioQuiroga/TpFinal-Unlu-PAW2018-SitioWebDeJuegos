@@ -1,0 +1,129 @@
+section.game-section{
+    display: flex;
+    margin: 1em auto;
+    width: 80%;
+    height: 30em;
+    align-items: center;
+    text-align: center;
+    border: solid #0E0B16;
+    border-radius: 0.6em;
+}
+
+span.error{
+    text-align: center;
+    margin: auto auto;
+}
+
+main{
+    padding: 1em;
+}
+
+section.game-data{
+    display: flex;
+    font-size: small;
+    align-items: center;
+    vertical-align: middle;
+
+}
+
+.game-data>div.titulo-y-creador{
+
+}
+
+img.fav-heart{
+    width: 25%;
+    height: auto;
+    cursor: pointer;
+}
+
+.txt-center {
+    width: 45%;
+    text-align: center;
+}
+.hide {
+    display: none;
+}
+
+.clear {
+    float: none;
+    clear: both;
+}
+
+.rating {
+    width: 100%;
+    font-size: xx-large;
+    unicode-bidi: bidi-override;
+    direction: rtl;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+   /* position: relative;*/
+}
+
+.rating > label {
+    /*float: right;*/
+    /*display: inline;*/
+    /*padding: 0;
+    margin: 0;*/
+    /*position: relative;*/
+
+    cursor: pointer;
+    color: #000;
+    margin: 0;
+    padding: 0;
+}
+
+.rating > label:hover,
+.rating > label:hover ~ label,
+.rating > input.radio-btn:checked ~ label {
+    color: transparent;
+    margin: 0;
+    padding: 0;
+}
+
+.rating > label:hover:before,
+.rating > label:hover ~ label:before,
+.rating > input.radio-btn:checked ~ label:before,
+.rating > input.radio-btn:checked ~ label:before {
+    content: "\2605";
+    /*position: absolute;*/
+    margin: 0;
+    padding: 0;
+    /*left: 0;*/
+    color: #FFD700;
+}
+
+/*=== Comentarios ===*/
+.nuevo-comment > form {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+}
+.paragraphInput{
+    height: 100%;
+    margin-left: 3%;
+    margin-right: 3%;
+    border: solid #cacaca;
+    border-right-color: #0E0B16;
+    border-bottom-color: #0E0B16;
+    font-size: 16px;
+    line-height:1.4;
+    width:60%;
+}
+
+img.comment-avatar{
+    width: 100px;
+    height: auto;
+}
+
+button{
+    width: 10%;
+    background-color: #cacaca;
+    padding: 0.8%;
+    color: black;
+    border-right: solid #0E0B16;
+    border-bottom: solid #0E0B16;
+    border-radius: 4px;
+    cursor: pointer;
+}

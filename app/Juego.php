@@ -56,15 +56,29 @@ class Juego extends Model
 
     public function valoracions(){
         return $this->belongsToMany('App\User','valoracions')
-            ->withPivot('juego_id','usuario_id','estrellas');
+            ->withPivot('juego_id','user_id','estrellas');
     }
 
     public function toArray()
     {
         $arr= parent::toArray();
-        $tags= $this->tags()->toArray();
+        $tags= $this->tags->toArray();
         $arr['tags']=$tags;
         return $arr;
+    }
+
+    public function newRating($newRating)
+    {
+        $cantTotal = ($this->cant_valoraciones * $this->valoracion_promedio)+$newRating;
+        $this->valoracion_promedio = $cantTotal / ($this->cant_valoraciones + 1);
+        $this->save();
+    }
+
+    public function updateOldRating($oldRating, $newRating)
+    {
+        $cantTotal = ($this->cant_valoraciones * $this->valoracion_promedio)+$newRating-$oldRating;
+        $this->valoracion_promedio = $cantTotal / ($this->cant_valoraciones);
+        $this->save();
     }
 
 }

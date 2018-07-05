@@ -19,6 +19,6 @@ class Tag extends Model
     }
 
     public function juegos(){
-       return $this->belongsToMany('App\Tag');
+       return $this->belongsToMany('App\Juego');
    }
 }

@@ -29,11 +29,18 @@ Route::get('/', function (){
 });
 //Ajax request del buscador de juegos
 Route::get('/games/search','HomeController@search');
-
+Route::get('/games/filter', 'HomeController@filter');
 
 /* --- Auth con otras aplicaciones, google, facebook etc -----*/
 Route::get('login/{provider}/redirect','Auth\LoginController@redirect');
 Route::get('login/{provider}/callback','Auth\LoginController@callback');
+
+/*--------------
+|   Juegos
+|---------------
+|
+*/
+Route::get('/game/{name}','JuegoController@show');
 
 
 Auth::routes();

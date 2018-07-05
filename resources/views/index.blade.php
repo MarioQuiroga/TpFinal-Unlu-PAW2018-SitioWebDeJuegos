@@ -38,7 +38,7 @@
     <div class="carrusel-imgs" id="carrusel-imgs" data-track="hover">
         @foreach($featured as $feat)
             <div class="feat-game fade">
-                <a href="">
+                <a href="{{url('game/'.$feat->nombre_server)}}">
                     <img src="{{asset('img/'. $feat->nombre_server . '/'. $feat->featImage)}}" alt="{{$feat->titulo}}">
                 </a>
                 <span class="game-title"> <h3>{{$feat->titulo}}:</h3>{{$feat->descripcion}}</span>
@@ -68,14 +68,15 @@
 
     <div class="games-mosaico">
     @foreach($hots as $game)
-        <div class="game-box">
+        <div class="game-box" onclick="location.href='{{url('game/'.$game->nombre_server)}}'">
             <div class="game-box-img">
                 <img src="{{asset('img/'. $game->nombre_server . '/'. $game->avatar)}}" alt="{{$game->titulo}}">
+                <a href="{{url('game/'.$feat->nombre_server)}}"></a>
             </div>
             <p>
                 <b>{{$game->titulo}}</b>
             </p>
-            <span class="valoracion">&#11088 {{ $game->valoracion_promedio }}</span>
+            <span class="valoracion">&#11088 {{ round($game->valoracion_promedio,1) }}</span>
             <div class="tags">
                 @foreach($game->tags as $tag)
                     <span class="tag">{{$tag->nombre}}</span>
@@ -98,21 +99,21 @@
             </li>
             @foreach($mainTags as $tag)
                 <li>
-                    <span class="tagFilter" onclick="BuscadorJuegos.tagFilter({{$tag->nombre}})">{{$tag->nombre}}</span>
+                    <span class="tagFilter" onclick="BuscadorJuegos.tagFilter('{{$tag->nombre}}')">{{$tag->nombre}}</span>
                 </li>
             @endforeach
         </ul>
     </div>
     <div class="games-mosaico" id="mosaico-buscador">
         @foreach($juegos as $game)
-            <div class="game-box">
+            <div class="game-box" onclick="location.href='{{url('game/'.$game->nombre_server)}}'">
                 <div class="game-box-img">
                     <img src="{{asset('img/'. $game->nombre_server . '/'. $game->avatar)}}" alt="{{$game->titulo}}">
                 </div>
                 <p>
                     <b>{{$game->titulo}}</b>
                 </p>
-                <span class="valoracion">&#11088 {{ $game->valoracion_promedio }}</span>
+                <span class="valoracion">&#11088 {{ round($game->valoracion_promedio,1) }}</span>
                 <div class="tags">
                     @foreach($game->tags as $tag)
                         <span class="tag">{{$tag->nombre}}</span>
@@ -124,31 +125,4 @@
     </div>
 </section>
 @include('utils.separador')
-<div class="garabatosBox">
-    <section class="main-garab">
-        <article>
-            <h2>Lorem ipsum dolor</h2>
-            <p> sit amet, consectetur adipiscing elit. Maecenas sollicitudin malesuada facilisis. Proin ultrices nisi lorem, at porttitor lacus tristique.</p>
-        </article>
-        <article style="display: none">
-            <h2>title</h2>
-            <p>sit amet, consectetur adipiscing elit. Maecenas sollicitudin malesuada facilisis. Proin ultrices nisi lorem, at porttitor lacus tristique.</p>
-        </article>
-        <article style="display: none">
-            <h2>title</h2>
-            <p>sit amet, consectetur adipiscing elit. Maecenas sollicitudin malesuada facilisis. Proin ultrices nisi lorem, at porttitor lacus tristique.</p>
-        </article>
-    </section>
-    <div class="vertical-border"></div>
-    <article class="garab">
-        <h2>Lorem ipsum dolor</h2>
-        <p>sit amet, consectetur adipiscing elit. Maecenas sollicitudin malesuada facilisis. Proin ultrices nisi lorem, at porttitor lacus tristique.</p>
-    </article>
-    <div class="vertical-border"></div>
-    <article class="garab">
-        <h2>Lorem ipsum dolor</h2>
-        <p>sit amet, consectetur adipiscing elit. Maecenas sollicitudin malesuada facilisis. Proin ultrices nisi lorem, at porttitor lacus tristique.</p>
-    </article>
-
-</div>
 @endsection

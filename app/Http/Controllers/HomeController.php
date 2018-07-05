@@ -16,10 +16,8 @@ class HomeController extends Controller
      */
     public function __construct(Guard $auth)
     {
-
-        $this->auth=$auth;
-        $this->middleware('auth',['except'=>['index','search']]);
-
+        /*$this->auth=$auth;
+        $this->middleware('auth',['except'=>['index','search']]);*/
     }
 
     /**
@@ -48,6 +46,17 @@ class HomeController extends Controller
                 $games->concat($tag->juegos());
             }
             return response()->json($games->toArray());
+        }
+    }
+
+    public function filter(Request $request ){
+        $tagStr = $request->input('tag');
+        $tag = Tag::where('nombre',$tagStr)->first();
+        if($tag!=null){
+            $games = $tag->juegos;
+            return response()->json($games->toArray());
+        } else {
+            return respose()->json(['error'=>'tagNoEncontrado']);
         }
     }
 }

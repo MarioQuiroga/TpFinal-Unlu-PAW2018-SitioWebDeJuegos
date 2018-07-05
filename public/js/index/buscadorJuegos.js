@@ -21,13 +21,6 @@ var BuscadorJuegos={
                         BuscadorJuegos.vaciarMosaico();
                         BuscadorJuegos.llenarMosaico(data);
                     }
-                    /*if(!data.nroTurno){
-                        h3 = $('<h3>');
-                        h3.text('Error en la carga de turno');
-                        $('#system-msgs').append(h3);
-                    }
-                    else
-                    {*/
                 }
             });
 
@@ -74,6 +67,25 @@ var BuscadorJuegos={
            gameBox.append(gameBoxImg,titulo,valoracion,tags);
            mosaico.append(gameBox);
        })
+    },
+
+    tagFilter: function (tagF) {
+        $.ajax({
+            headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+            url: "/games/filter",
+            type: "get",
+            data: {
+                tag: tagF,
+            },
+            dataType:'json',
+            success : function (data) {
+                console.log(data);
+                if(data){
+                    BuscadorJuegos.vaciarMosaico();
+                    BuscadorJuegos.llenarMosaico(data);
+                }
+            }
+        });
     }
 
 
