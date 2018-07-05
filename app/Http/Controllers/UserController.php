@@ -84,11 +84,11 @@ class UserController extends Controller
                 //dd($fileName);
                 $image = Image::make($filePath);
                 //Si no existe el directorio de usuario lo creo
-                File::exists($user->userAvatarPath()) or File::makeDirectory($user->userAvatarPath());
+                File::exists(public_path() . $user->userAvatarPath()) or File::makeDirectory(public_path() . $user->userAvatarPath());
                 $newFileName = $this->changeFileName($fileName, $user->id);
                 //var_dump($user->userAvatarPath());
                 //var_dump($newFileName);
-                $image->save($user->userAvatarPath() . $newFileName);
+                $image->save(public_path() . $user->userAvatarPath() . $newFileName);
                 $user->avatar = $user->userAvatarPath() . $newFileName;
                 //return $fileName;
             //}

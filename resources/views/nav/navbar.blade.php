@@ -26,7 +26,9 @@
                 </li>
             @else
                 <li class="nav-item dropdown">
-                    <a class="nav-link" href="{{'/user/'. $user->id }}" role="button">
+
+                    <a class="nav-link" href="{{ url('user/'.Auth::user()->id) }}" role="button">
+
                         {{ Auth::user()->name }} <span class="caret"></span>
                     </a>
 
