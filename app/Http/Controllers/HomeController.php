@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Juego;
 use App\Tag;
+use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -13,9 +14,12 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(Guard $auth)
     {
-        //$this->middleware('guest');
+
+        $this->auth=$auth;
+        $this->middleware('auth',['except'=>['index','search']]);
+
     }
 
     /**

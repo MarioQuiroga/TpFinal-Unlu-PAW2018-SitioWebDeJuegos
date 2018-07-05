@@ -77,7 +77,7 @@
             </p>
             <span class="valoracion">&#11088 {{ $game->valoracion_promedio }}</span>
             <div class="tags">
-                @foreach($game->tags() as $tag)
+                @foreach($game->tags as $tag)
                     <span class="tag">{{$tag->nombre}}</span>
                 @endforeach
             </div>
@@ -114,13 +114,13 @@
                 </p>
                 <span class="valoracion">&#11088 {{ $game->valoracion_promedio }}</span>
                 <div class="tags">
-                    @foreach($game->tags() as $tag)
+                    @foreach($game->tags as $tag)
                         <span class="tag">{{$tag->nombre}}</span>
                     @endforeach
                 </div>
             </div>
         @endforeach
-      
+
     </div>
 </section>
 @include('utils.separador')

@@ -14,7 +14,10 @@
     <div class='ul-right-nav'>
         <ul class="nav-ul">
             <!-- Authentication -->
-            @guest
+            @php
+                $user=Auth::guard('api')->user();
+            @endphp
+            @if($user==null)
                 <li>
                     <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                 </li>
@@ -23,7 +26,9 @@
                 </li>
             @else
                 <li class="nav-item dropdown">
+
                     <a class="nav-link" href="{{ url('user/'.Auth::user()->id) }}" role="button">
+
                         {{ Auth::user()->name }} <span class="caret"></span>
                     </a>
 
@@ -38,7 +43,7 @@
                         </form>
                     </div>
                 </li>
-            @endguest
+            @endif
         </ul>
     </div>
 </nav>

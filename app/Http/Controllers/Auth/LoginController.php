@@ -42,7 +42,9 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        /*$this->middleware('guest')->except('logout');*/
+        $this->middleware('guest')->except('logout');
+       /* $this->middleware('auth:api');*/
+
     }
 
     public function redirect($provider){
@@ -77,9 +79,9 @@ class LoginController extends Controller
             ->with(compact('juegos'))
             ->with(compact('mainTags'));
 
-        //return redirect()->to('/');
+        /*return redirect()->to('/');*/
         //Esto funciona bien:
-        //dd(Auth::user());
+        /*dd(Auth::user());*/
 
         /*try {
             $googleUser = Socialite::driver('google')->stateless()->user();
