@@ -10,7 +10,7 @@ class Tag extends Model
     {
         $tags = self::all();
         $sortedTags=$tags->sortByDesc(function ($tag){
-            return count($tag->juegos());
+            //return count($tag->juegos);
         });
         $mainTags=$sortedTags->take(10);
 

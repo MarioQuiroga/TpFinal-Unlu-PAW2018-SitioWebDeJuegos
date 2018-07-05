@@ -120,7 +120,7 @@
                 </div>
             </div>
         @endforeach
-        {{$juegos->links()}}
+      
     </div>
 </section>
 @include('utils.separador')

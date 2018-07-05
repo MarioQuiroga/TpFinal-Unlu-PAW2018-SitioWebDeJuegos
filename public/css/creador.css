@@ -1,0 +1,64 @@
+.formRegisterDev{
+	border-style: solid;
+	border-radius: 5px;
+	border-width: 2px;
+	margin: 20px;
+	padding: 10px;
+	
+
+ }
+
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+#inputFile { 
+  content: 'Subir Juego';  
+  margin-top: 1%;
+  margin-bottom: 1%;
+  width: 100%;
+  visibility: hidden;
+  /*
+  position: relative;*/
+}
+
+#inputFile::before {
+  content: 'Subir Juego';  
+  background: -webkit-linear-gradient(top, #f9f9f9, #e3e3e3);
+  border: 1px solid #999;
+  border-radius: 3px;
+  padding: 5px 8px;
+  outline: none;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  cursor: pointer;
+  text-shadow: 1px 1px #fff;
+  font-weight: 700;
+  font-size: 10pt;
+  visibility: visible;
+  position: relative;
+   width: 100%;
+}
+#inputFile:hover::before {
+  border-color: black;
+}
+
+#inputFile:active::before {
+  background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+}
+
+.inputFileDiv{
+	text-align: left;
+	height: 20px;
+	width: 200px;
+}
+
+.button{
+	padding: 0.5%;
+}

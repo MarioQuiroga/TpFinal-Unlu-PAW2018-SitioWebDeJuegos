@@ -3,6 +3,7 @@ body{
     /*margin: 25px;*/
     background-color: #0E0B16;
 /*    padding: 5px;*/
+     font-size: 1vw;
 }
 
 
@@ -16,15 +17,13 @@ main {
 }
 
 
-
-
-
 /*=== Separador de espadas ===*/
 .sword-separator {
     display: flex;
     width: 100%;
     align-items: center;
     justify-content: space-between;
+    word-break: break-all;
 }
 
 .sword-separator>img{

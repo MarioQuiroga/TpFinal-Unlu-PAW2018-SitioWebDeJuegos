@@ -18,15 +18,15 @@
 				@if(Auth::id() == $user->id)
 					@if(!$user->isCreador())
 						<div class="devButton">
-							<button class="button" href="register/dev/{{ $user->id }}"><a><b>Registrarse como Desarrollador</b></a></button>
+							<button class="button" ><a href="{{ url('register/dev/'. $user->id) }}"><b>Registrarse como Desarrollador</b></a></button>
 						</div>	
 					@else
 						<div class="devButton">
-							<button class="button"><a href="edit/dev/{{ $user->id }}"><b>Perfil Desarrollador</b></a></button>	
+							<button class="button"><a href="{{ url('edit/dev/'. $user->id) }}"><b>Perfil Desarrollador</b></a></button>	
 						</div>	
 					@endif
 					<div class="devButton">
-						<button class="button"><a href="edit/{{ $user->id }}"><b>Editar Perfil</b></a></button>	
+						<button class="button"><a href="{{ url('edit/'. $user->id) }}"><b>Editar Perfil</b></a></button>	
 					</div>	
 
 				@endif
@@ -84,6 +84,6 @@
 	@endif
 @endsection
 
-@section('script')
+@section('css')
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/profile.css') }}">
 @endsection

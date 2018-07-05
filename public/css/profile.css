@@ -5,13 +5,17 @@
 }
 
 .imgAvatar{
-	width: 200px;
-	height: 200px;
+
+	padding: 5%;
+	width: 100%;
+	height: auto;
+	/*width: 200px;
+	height: 200px;*/
 	
 }
 
 .userAvatar{
-	/*flex-basis: 20%;*/
+	flex-basis: 20%;
 	text-align: center;
 }
 
@@ -20,7 +24,7 @@
 	border-width: 2px;
 	margin: 20px;
 	padding: 10px;
-	flex-basis: 80%;	
+	flex-basis: 70%;	
 }
 
 .row{
@@ -56,6 +60,7 @@
  	background-color: #006400;
  	text-decoration: none;
  	color: black;
+ 	 font-size: 1vw;
  }
 
  button a{
