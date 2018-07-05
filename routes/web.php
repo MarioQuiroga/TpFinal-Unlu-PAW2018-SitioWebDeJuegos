@@ -11,11 +11,22 @@
 |
 */
 
+use App\Juego;
+use App\Tag;
 use Illuminate\Support\Facades\Auth;
 
 
 /* --- INDEX --- */
-Route::get('/', 'HomeController@index');
+Route::get('/', function (){
+    $featured = Juego::getFeaturedGames();
+    $hots = Juego::getHotGames();
+    $juegos = Juego::orderBy('fecha_creacion','desc')->simplePaginate(9);
+    $mainTags = Tag::getMainTags();
+    return view('index')->with(compact('featured'))
+        ->with(compact('hots'))
+        ->with(compact('juegos'))
+        ->with(compact('mainTags'));
+});
 //Ajax request del buscador de juegos
 Route::get('/games/search','HomeController@search');
 

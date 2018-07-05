@@ -15,7 +15,7 @@
         <ul class="nav-ul">
             <!-- Authentication -->
             @php
-                $user=Auth::guard('api')->user();
+                $user=Auth::user();
             @endphp
             @if($user==null)
                 <li>

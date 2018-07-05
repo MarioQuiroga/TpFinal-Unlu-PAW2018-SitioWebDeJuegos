@@ -94,7 +94,7 @@ class DatabaseSeeder extends Seeder
         $juego5 =Juego::create([
             'creador_id'=>1,
             'descripcion'=>'Diviertete con los discos que tenemos para ti',
-            'titulo'=>'GimmeGimmeRecords',
+            'titulo'=>'Gimme Records',
             'nombre_server'=>'juego5',
             'fecha_creacion'=>'2018-07-02',
             'avatar'=>'juego5.jpg',

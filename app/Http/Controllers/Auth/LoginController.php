@@ -52,9 +52,9 @@ class LoginController extends Controller
     }
 
     public function callback(Request $request,$provider){
-       /* $state = $request->get('state');
+        $state = $request->get('state');
         $request->session()->put('state',$state);
-        session()->regenerate();*/
+        session()->regenerate();
 
         $gUser = Socialite::driver($provider)->stateless()->user();
         $user = User::where('email',$gUser->email)->first();
@@ -67,19 +67,19 @@ class LoginController extends Controller
                 'provider_id'=>$gUser->id,
             ]);
         }
-       Auth::login($user);
+       Auth::login($user,true);
 
 
-        $featured = Juego::getFeaturedGames();
+        /*$featured = Juego::getFeaturedGames();
         $hots = Juego::getHotGames();
         $juegos = Juego::getIniciales();
         $mainTags = Tag::getMainTags();
         return view('index')->with(compact('featured'))
             ->with(compact('hots'))
             ->with(compact('juegos'))
-            ->with(compact('mainTags'));
+            ->with(compact('mainTags'));*/
 
-        /*return redirect()->to('/');*/
+        return redirect()->to('/');
         //Esto funciona bien:
         /*dd(Auth::user());*/
 
