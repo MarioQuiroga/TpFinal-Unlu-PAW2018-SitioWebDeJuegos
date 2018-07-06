@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use Intervention\Image\Facades\Image;
@@ -10,9 +11,14 @@ use App\User;
 
 class UserController extends Controller
 {
-    //
 
-     /**
+    public function __construct()
+    {
+        $this->middleware('auth')->only(['edit','toggleFav']);
+    }
+
+
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -102,5 +108,15 @@ class UserController extends Controller
         $ext = strtolower(substr($name, strripos($name, '.') + 1));
         $filename = round(microtime(true)) . mt_rand() . '.' . $ext;
         return $filename;
+    }
+
+    public function toggleFav($game){
+        $user = Auth::user();
+        if($user!=null){
+            $user->toggleFavorito($game);
+            return response()->json(['estado'=>$user->isFavorito($game)]);
+        }else{
+            return response()->json(['error'=>'usuario no logueado']);
+        }
     }
 }

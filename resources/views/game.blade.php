@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
 @section('meta')
+    @if($juego)
+        <meta name="game-id" content="{{ $juego->id }}">
+    @endif
 @endsection
 @section('css')
     <link rel="stylesheet" type="text/css" href="{{asset('css/gameView/game.css')}}">
@@ -49,8 +52,8 @@
                             $emptyAux='hidden';
                         }
                     @endphp
-                    <img class="fav-heart" src="{{asset('img/full_Heart.png')}}" alt="Full Heart" id="fullHeart" {{$fullAux}}>
-                    <img class="fav-heart" src="{{asset('img/Empty_Heart.png')}}" alt="Empty Heart" id="emptyHeart" {{$emptyAux}}>
+                    <img class="fav-heart" src="{{asset('img/full_Heart.png')}}" alt="Full Heart" id="fullHeart" {{$fullAux}} onclick="GameControl.toggleFav(this)">
+                    <img class="fav-heart" src="{{asset('img/Empty_Heart.png')}}" alt="Empty Heart" id="emptyHeart" {{$emptyAux}} onclick="GameControl.toggleFav(this)">
                 </div>
             @endif{{-- if(auth::user)--}}
 

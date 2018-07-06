@@ -31,28 +31,33 @@
 @endif
 
 {{--///// Juegos featured /////--}}
-<section class="carrusel">
+<div class="featured">
+    {{--<img class="diamond" src="{{asset('img/diamond.png')}}" alt="diamond">--}}
 
-    {{--<a class="prev" onclick="Carrusel.mover(-1)">&#10094;</a>--}}
+    <section class="carrusel">
 
-    <div class="carrusel-imgs" id="carrusel-imgs" data-track="hover">
-        @foreach($featured as $feat)
-            <div class="feat-game fade">
-                <a href="{{url('game/'.$feat->nombre_server)}}">
-                    <img src="{{asset('img/'. $feat->nombre_server . '/'. $feat->featImage)}}" alt="{{$feat->titulo}}">
-                </a>
-                <span class="game-title"> <h3>{{$feat->titulo}}:</h3>{{$feat->descripcion}}</span>
-            </div>
-        @endforeach
-    </div>
+        {{--<a class="prev" onclick="Carrusel.mover(-1)">&#10094;</a>--}}
+        <div class="carrusel-imgs" id="carrusel-imgs" data-track="hover">
+            @foreach($featured as $feat)
+                <div class="feat-game fade">
+                    <a href="{{url('game/'.$feat->nombre_server)}}">
+                        <img src="{{asset('img/'. $feat->nombre_server . '/'. $feat->featImage)}}" alt="{{$feat->titulo}}">
+                    </a>
+                    <span class="game-title"> <h3>{{$feat->titulo}}:</h3>{{$feat->descripcion}}</span>
+                </div>
+            @endforeach
+        </div>
 
-    <div class="carrusel-dots">
-        @for($i=1;$i<=count($featured);$i++)
-            <span class="carrusel-dot" onclick="Carrusel.cambiarA({{$i}})"></span>
-        @endfor
-    </div>
-    {{--<a class="next" onclick="Carrusel.mover(+1)">&#10095;</a>--}}
-</section>
+        <div class="carrusel-dots">
+            @for($i=1;$i<=count($featured);$i++)
+                <span class="carrusel-dot" onclick="Carrusel.cambiarA({{$i}})"></span>
+            @endfor
+        </div>
+        {{--<a class="next" onclick="Carrusel.mover(+1)">&#10095;</a>--}}
+    </section>
+    {{--<img class="diamond" src="{{asset('img/diamond.png')}}" alt="diamond">--}}
+</div>
+
 
 @include('utils.separador')
 

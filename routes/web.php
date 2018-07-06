@@ -31,6 +31,8 @@ Route::get('/', function (){
 Route::get('/games/search','HomeController@search');
 Route::get('/games/filter', 'HomeController@filter');
 
+
+
 /* --- Auth con otras aplicaciones, google, facebook etc -----*/
 Route::get('login/{provider}/redirect','Auth\LoginController@redirect');
 Route::get('login/{provider}/callback','Auth\LoginController@callback');
@@ -48,6 +50,8 @@ Auth::routes();
  */
 Route::post('juegos/{id}/score','JugadaController@update');
 
+//ajax toggle favorito
+Route::get('user/favs/toggle/{game}','UserController@toggleFav');
 
 /*--- Perfil de Usuario ---*/
 Route::get('user/{id}','UserController@show')->name('perfil');

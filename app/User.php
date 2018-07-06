@@ -133,7 +133,23 @@ class User extends Authenticatable
         return false;
     }
 
-    public function agregarFavorito(){
+    public function toggleFavorito(int $juegoId){
+        $juego = Juego::find($juegoId);
+        if($juego!=null){
+            if($this->isFavorito($juego)){
+                $this->favoritos()->save($juego);
+            }
+            else{
+            }
+        }
 
+        if(Juego::where('id',$juegoId)->exists()){
+            if($this->isFavorito(Juego::find($juegoId))){
+                $this->favoritos()->detach($juegoId);
+            }else {
+                $this->favoritos()->attach($juegoId);
+            }
+
+        }
     }
 }

@@ -49,9 +49,21 @@ div.feat-game>a>img {
     text-align: left;
 }
 
+div.featured{
+    display: flex;
+    width: 100%;
+    vertical-align: middle;
+    align-items: center;
+}
+
+img.diamond{
+    flex-basis: 10%;
+    height: auto;
+}
 /* Slideshow container */
 .carrusel {
-    width: 50%;
+    /*width: 50%;*/
+    flex-basis: 50%;
     margin-top: 1em;
     margin-left: auto;
     margin-right: auto;
