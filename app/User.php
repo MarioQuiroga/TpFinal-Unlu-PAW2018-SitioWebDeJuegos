@@ -70,15 +70,15 @@ class User extends Authenticatable
      * @return Carbon
      */
     public function fechaUltimaJugada(){
-        $ultJug=$this->jugadas()->orderBy('fecha','desc')->first();
+        $ultJug=$this->jugadas()->orderBy('created_at','desc')->first();
         if($ultJug!=null){
-            return $ultJug->fecha;
+            return Carbon::createFromFormat('Y-m-d H:i:s',$ultJug->created_at);
         }
          return Carbon::createFromFormat('Y-m-d H:i:s',$this->created_at);
     }
 
     public function ultimoJuegoJugado(){
-        $ultJug=$this->jugadas()->orderBy('fecha','desc')->first();
+        $ultJug=$this->jugadas()->orderBy('created_at','desc')->first();
         if($ultJug!=null){
             return $ultJug->juego;
         } else {

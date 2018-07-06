@@ -10,6 +10,7 @@
 @endsection
 @section('scripts')
     <script type="text/javascript" src="{{asset('js/gameView/gameView.js')}}"></script>
+    <script type="text/javascript" src="{{asset('js/GameEngine.js')}}"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             GameControl.init();
@@ -19,7 +20,7 @@
 @endsection
 @section('content')
     <section class="game-section">
-        @if(View::exists('games/'.$name))
+        @if(View::exists('games.'.$name))
             @include('games/'.$name)
         @else
             <span class="error"> No hemos podido encontrar el juego {{$name}}</span>
@@ -70,7 +71,7 @@
                 <section class="nuevo-comment">
                     <form action="">
                         @csrf
-                        <img src="{{asset(Auth::user()->avatar)}}" alt="avatar" class="comment-avatar">
+                        <img src="{{asset(Auth::user()->userAvatarPath())}}" alt="avatar" class="comment-avatar">
                         <textarea class="paragraphInput" id="txt-comment" placeholder="Deja un comentario..." name="body"></textarea>
                         <button class="submit" type="submit" id="btn-comentar"> Comentar </button>
                     </form>
@@ -80,8 +81,8 @@
                 @foreach($juego->comentarios()->orderBy('created_at','desc')->get() as $comentario)
                 <div class="comentario">
                     <div class="comment-user">
-                        <span class="username">{{$comentario->user->name}}</span>
-                        <img src="{{asset($comentario->user->avatar)}}" alt="avatar" class="comment-avatar">
+                        <span class="username"><a href="{{url('user/'.$comentario->user->id)}}">{{$comentario->user->name}}</a></span>
+                        <img src="{{asset($comentario->user->userAvatarPath())}}" alt="avatar" class="comment-avatar">
                     </div>
                     <div class="comment-content">
                         <p>

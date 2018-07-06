@@ -7,7 +7,7 @@
 				<form class="userDataForm" action="{{url('user/edit/' . $user->id)  }}" method="post" enctype="multipart/form-data">
 					@csrf
 					<div class="editAvatar">
-						<img src="{{ asset($user->avatar) }} " class="imgAvatar" id="imgAvatar"><br>
+						<img src="{{ asset($user->userAvatarPath()) }} " class="imgAvatar" id="imgAvatar"><br>
 						<div class="inputFileDiv">
 							<input type="file" name="inputFile" id="inputFile" onchange="updateImg()">
 						</div>

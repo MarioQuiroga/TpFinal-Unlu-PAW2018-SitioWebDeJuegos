@@ -38,8 +38,6 @@ var GameControl ={
                             $('section#comentarios-cont').prepend(comentarioDiv);
 
                         }
-
-
                     }
                 });
             }

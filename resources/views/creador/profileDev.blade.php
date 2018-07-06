@@ -19,9 +19,9 @@
 					<div class="devButton">
 						<button class="button"><a href="{{ url('dev/edit/'. $creador->id) }}"><b>Editar Perfil</b></a></button>	
 						<button class="button"><a href="{{ url('games/create/'. $creador->id) }}"><b>Subir un Juego</b></a></button>	
-						<button class="button"><a href="{{ url('user/'. $user->id) }}"><b>Ir a tu Usuario</b></a></button>	
-					</div>					
-			@endif		
+						<button class="button"><a href="{{ url('user/'. $user->id) }}"><b>Ir a tu Usuario</b></a></button>
+					</div>
+			@endif
 		</div>
 
 		@if (count($juegos)>0)			

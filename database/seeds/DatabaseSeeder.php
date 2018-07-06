@@ -114,6 +114,28 @@ class DatabaseSeeder extends Seeder
 
         ]);
 
+        $juego7 =Juego::create([
+            'creador_id'=>1,
+            'descripcion'=>'Juega con tu mejor amigx a este clásico juego de pong',
+            'titulo'=>'Tenis',
+            'instrucciones'=>'player1: wasd , player2: arrows/flechas',
+            'nombre_server'=>'tenis',
+            'fecha_creacion'=>'2018-07-06',
+            'avatar'=>'tenis.png',
+
+        ]);
+
+        $juegoArka =Juego::create([
+            'creador_id'=>1,
+            'descripcion'=>'Destruye todos los ladrillos que puedas sin dejar irse a la bola',
+            'titulo'=>'Arkanoid',
+            'instrucciones'=>'controles: flechas',
+            'nombre_server'=>'arkanoid',
+            'fecha_creacion'=>'2018-07-06',
+            'avatar'=>'arkanoid.png',
+
+        ]);
+
         //Asocio el juego de zombies con el tag "zombie" y el "defensa"
         $juego1->tags()->attach([$tag1->id,$tag2->id]);
         //al de pong el tag "dos jugadores"
@@ -124,6 +146,9 @@ class DatabaseSeeder extends Seeder
         $juego4->tags()->attach($tag5->id);
         $juego5->tags()->attach($tag6->id);
         $juego6->tags()->attach($tag7->id);
-
+        //juego de tenis tag 2jug
+        $juego7->tags()->attach($tag3->id);
+        //arkanoid tag plataforma
+        $juegoArka->tags()->attach($tag5->id);
     }
 }

@@ -49,7 +49,7 @@ Route::get('/game/{name}','JuegoController@show');
 Auth::routes();
 /*
  */
-Route::post('juegos/{id}/score','JugadaController@update');
+Route::get('juegos/{id}/score','JugadaController@update');
 
 
 //ajax toggle favorito

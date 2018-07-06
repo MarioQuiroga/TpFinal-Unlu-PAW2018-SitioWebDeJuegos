@@ -3,7 +3,7 @@ body{
     /*margin: 25px;*/
     background-color: #0E0B16;
 /*    padding: 5px;*/
-     font-size: 1vw;
+     /*font-size: 1vw;*/
 }
 
 
@@ -120,12 +120,42 @@ input {
     /*height: 300px;*/
 }
 @media only screen and (max-width: 600px) {
+    form{
+        font-size: xx-small;
+        width: 90%;
+    }
+    form.input{
+        width: 80%;
+    }
+
+    footer {
+        font-size: xx-small;
+    }
+    .login-controls{
+        width: 98%;
+    }
     .game-box {
         width: 125px;
         font-size: 0.5em;
     }
     .panel-control{
         font-size: 0.5em;
+    }
+    h2, h3  {
+        font-size: small;
+    }
+
+    img.logo {
+        width: 47px;
+        height: 50px;
+    }
+
+    #searchGame {
+        margin-right: 2%;
+    }
+    .panel-control{
+        align-items: center;
+        align-content: center;
     }
 }
 .game-box:hover{

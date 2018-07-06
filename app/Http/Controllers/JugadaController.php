@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Juego;
+use App\Jugada;
+use Auth;
 use Illuminate\Http\Request;
 
 class JugadaController extends Controller
@@ -68,7 +71,18 @@ class JugadaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $puntaje = $request->input('score');
+        $user =Auth::user();
+        if($user !=null){
+            $juego = Juego::find($id);
+            if($juego!=null){
+                $jugada= Jugada::create([
+                   'juego_id'=>$juego->id,
+                   'user_id'=>$user->id,
+                   'puntaje'=>$puntaje,
+                ]);
+            }
+        }
     }
 
     /**

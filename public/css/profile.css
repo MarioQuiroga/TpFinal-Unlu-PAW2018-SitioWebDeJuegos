@@ -5,17 +5,13 @@
 }
 
 .imgAvatar{
-
-	padding: 5%;
-	width: 100%;
-	height: auto;
-	/*width: 200px;
-	height: 200px;*/
+	width: 200px;
+	height: 200px;
 	
 }
 
 .userAvatar{
-	flex-basis: 20%;
+	/*flex-basis: 20%;*/
 	text-align: center;
 }
 
@@ -24,7 +20,7 @@
 	border-width: 2px;
 	margin: 20px;
 	padding: 10px;
-	flex-basis: 70%;	
+	flex-basis: 80%;
 }
 
 .row{
@@ -57,10 +53,9 @@
  .button{
  	padding: 10px;
  	border-radius: 5px;
- 	/*background-color: #006400;*/
+ 	background-color: #006400;
  	text-decoration: none;
  	color: black;
- 	font-size: 1vw;
  }
 
  button a{
@@ -70,7 +65,7 @@
 
  .button:hover{
  	cursor: pointer;
- 	/*background-color: 	#32CD32;*/
+ 	background-color: 	#32CD32;
  }
 
  .userDataForm{
@@ -144,8 +139,4 @@ input[type=text], select {
 	text-align: left;
 	height: 20px;
 	width: 200px;
-}
-
-.labelPortada{
-	width: 100%;
 }

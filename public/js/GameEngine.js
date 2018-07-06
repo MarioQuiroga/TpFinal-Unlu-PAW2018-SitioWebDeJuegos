@@ -5,20 +5,21 @@ var GameEngine={
     *
     * */
   publishScore: function (score, callback) {
-      let user = $("#user");
-      let game = $('#juego');
+      let game = $('meta[name="game-id"]').attr('content');
       let postData = {
-        user: user.val(),
-        game: game.val(),
+        game: game,
         score: score,
       };
+      console.log('por hacer ajax');
       $.ajax({
-         type :'post',
-          url :'juegos/'+ game +'/score',
+         type :'get',
+          header: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+          url :'/juegos/'+ game +'/score',
           data : postData,
           dataType: 'json',
           success :  function (result) {
              //si falla
+              console.log('done');
               if(result.error.name){
                   //avisar que no se guarda el puntaje
               }

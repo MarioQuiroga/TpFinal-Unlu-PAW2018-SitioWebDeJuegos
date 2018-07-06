@@ -18,7 +18,6 @@ class Jugadas extends Migration
             $table->integer('juego_id');
             $table->integer('user_id');
             $table->integer('puntaje');
-            $table->timestamp('fecha');
             $table->timestamps();
         });
     }

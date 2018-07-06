@@ -39,7 +39,7 @@
                     $ultimoJuego = $user->ultimoJuegoJugado();
                     $fechaUltimaJugada = $user->fechaUltimaJugada();
                 @endphp
-                <h2><a href="juegos/{{$ultimoJuego->id}}">{{$ultimoJuego->titulo}}</a> hace {{ $ultimaJugada->diffForHumans() }}</h2>
+                <h2><a href="{{url('game/'. $ultimoJuego->nombre_server)}}">{{$ultimoJuego->titulo}}</a> hace {{ $fechaUltimaJugada->diffForHumans() }}</h2>
             @endif
 
         </div>
@@ -50,8 +50,9 @@
             <table>
                 @foreach ($user->jugadas as $jugada)
                     <tr>
-                        <td>{{ $jugada->fecha }}</td>
-                        <td>{{ $jugada->juego->titulo }}</td>
+                        <td>{{ Carbon\Carbon::createFromFormat('Y-m-d H:i:s',$jugada->created_at)->diffForHumans() }}</td>
+                        <td><a href="{{url('game/'. $jugada->juego->nombre_server)}}">{{$jugada->juego->titulo}}</a>
+                        </td>
                         <td>Puntaje: {{ $jugada->puntaje }}</td>
                     </tr>
                 @endforeach
