@@ -6,7 +6,7 @@
         </section>
         <div class="vertical-border"></div>
         <section class="footerLinks">
-            <a href="https://github.com/MarioQuiroga/TpFinal-Unlu-PAW2018-SitioWebDeJuegos">GitHub</a>
+            <a href="https://github.com/MarioQuiroga/TpFinal-Unlu-PAW2018-SitioWebDeJuegos#readme">GitHub</a>
             <!-- ... -->
         </section>
         <div class="vertical-border"></div>

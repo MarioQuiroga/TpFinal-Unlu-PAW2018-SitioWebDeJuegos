@@ -10,6 +10,12 @@
 @endsection
 @section('scripts')
     <script type="text/javascript" src="{{asset('js/gameView/gameView.js')}}"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            GameControl.init();
+        });
+
+    </script>
 @endsection
 @section('content')
     <section class="game-section">
@@ -62,16 +68,16 @@
             <h3>Comentarios</h3>
             @if(Auth::user())
                 <section class="nuevo-comment">
-                    <form action="{{url('game/'.$juego->id . '/comments')}}">
+                    <form action="">
                         @csrf
                         <img src="{{asset(Auth::user()->avatar)}}" alt="avatar" class="comment-avatar">
-                        <textarea class="paragraphInput" placeholder="Deja un comentario..." name="body"></textarea>
-                        <button class="submit" type="submit"> Comentar </button>
+                        <textarea class="paragraphInput" id="txt-comment" placeholder="Deja un comentario..." name="body"></textarea>
+                        <button class="submit" type="submit" id="btn-comentar"> Comentar </button>
                     </form>
                 </section>
             @endif
-            <section class="comentarios">
-                @foreach($juego->comentarios as $comentario)
+            <section class="comentarios" id="comentarios-cont">
+                @foreach($juego->comentarios()->orderBy('created_at','desc')->get() as $comentario)
                 <div class="comentario">
                     <div class="comment-user">
                         <span class="username">{{$comentario->user->name}}</span>
@@ -82,6 +88,7 @@
                           {{$comentario->contenido}}
                         </p>
                     </div>
+                    <span class="fecha-comment">{{$comentario->fechaDiffHumans()}}</span>
                 </div>
                 @endforeach
             </section>

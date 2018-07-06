@@ -4,6 +4,7 @@
 @section('content')
 	<?php 
 		setlocale(LC_TIME, 'spanish');
+		Carbon\Carbon::setLocale('es');
 		Carbon\Carbon::setUtf8(true);
 
 		$fechaRegC = Carbon\Carbon::createFromFormat('Y-m-d H:i:s',$user->created_at);
@@ -11,7 +12,7 @@
 	?>
     <div class="row">
         <div class="userAvatar">
-            <img src="{{ asset($user->avatar) }} " class="imgAvatar">
+            <img src="{{ asset($user->userAvatarPath()) }} " class="imgAvatar">
         </div>
         <div class="userData">
             @if(Auth::id() == $user->id)

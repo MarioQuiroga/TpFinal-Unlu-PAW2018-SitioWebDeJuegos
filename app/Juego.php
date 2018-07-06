@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 class Juego extends Model
@@ -86,5 +87,22 @@ class Juego extends Model
 
     public function getRutaAvatar(){
         return 'img/'.$this->nombre_server.'/'.$this->avatar;
+    }
+
+    public function addComment(User $user, string $comment){
+        return Comentario::create([
+           'juego_id'=>$this->id,
+           'user_id'=>$user->id,
+           'fecha'=>Carbon::now()->format('Y-m-d'),
+           'contenido'=>self::basicSanitize($comment),
+        ]);
+    }
+
+    public static function basicSanitize($data)
+    {
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        return $data;
     }
 }

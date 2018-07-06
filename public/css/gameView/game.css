@@ -94,10 +94,16 @@ img.fav-heart{
 }
 
 /*=== Comentarios ===*/
+.nuevo-comment{
+    margin-left: auto;
+    margin-right: auto;
+}
 .nuevo-comment > form {
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    margin-right: auto;
+    margin-left: auto;
+    /*justify-content: flex-start;*/
 
 }
 .paragraphInput{
@@ -112,9 +118,51 @@ img.fav-heart{
     width:60%;
 }
 
-img.comment-avatar{
-    width: 100px;
+.nuevo-comment>form>img.comment-avatar{
+    width: 15%;
     height: auto;
+}
+
+section.comentarios{
+    border-left: solid  #cacaca;
+    border-top: solid  #cacaca;
+    border-right: solid #0E0B16;
+    border-bottom: solid #0E0B16;
+    padding: 2%;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    word-break: break-all;
+}
+
+div.comentario{
+    display: flex;
+    margin-bottom: 1%;
+}
+
+div.comment-user{
+    width: 15%;
+    display: flex;
+    flex-direction: column;
+    font-size: small;
+}
+
+img.comment-avatar{
+    width: 100%;
+}
+div.comment-content{
+    width: 80%;
+    margin-left: 1%;
+}
+
+span.fecha-comment{
+    width: 10%;
+    font-size: x-small;
+    margin-left: 1%;
+    word-break: normal;
 }
 
 button{

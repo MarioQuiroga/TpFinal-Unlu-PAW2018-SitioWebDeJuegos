@@ -54,7 +54,11 @@ Route::post('juegos/{id}/score','JugadaController@update');
 
 //ajax toggle favorito
 Route::get('user/favs/toggle/{game}','UserController@toggleFav');
+//ajax rating
 Route::post('user/rating/{game}', 'UserController@updateRating');
+// ajax post comment
+Route::get('newComment/game/{game}','ComentarioController@store');
+
 
 /*--- Perfil de Usuario ---*/
 Route::get('user/{id}','UserController@show')->name('perfil');

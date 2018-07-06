@@ -11,6 +11,8 @@ class User extends Authenticatable
 {
     use Notifiable;
     const SIN_RATING = -1;
+    const COMMON_AVATAR='commonAvatar.png';
+    const COMMON_AVATAR_PATH='/avatars/commonAvatar.png';
 
     /**
      * The attributes that are mass assignable.
@@ -92,8 +94,11 @@ class User extends Authenticatable
         }
     }
     
-    public function userAvatarPath(){        
-        return '/avatars/' . $this->id . '/';
+    public function userAvatarPath(){
+        if($this->avatar === self::COMMON_AVATAR){
+            return self::COMMON_AVATAR_PATH;
+        }
+        return '/avatars/' . $this->id . '/' . $this->avatar;
     }
 
     public function getRating (Juego $juego){
