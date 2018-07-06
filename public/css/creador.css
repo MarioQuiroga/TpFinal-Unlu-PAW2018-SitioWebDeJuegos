@@ -18,6 +18,10 @@ input[type=text], select {
     box-sizing: border-box;
 }
 
+p{
+	width: 90%;
+}
+
 #inputFile { 
   content: 'Subir Juego';  
   margin-top: 1%;
@@ -61,4 +65,18 @@ input[type=text], select {
 
 .button{
 	padding: 0.5%;
+}
+
+li{
+	margin: 1em;
+}
+
+.contentTutorial{
+	margin: 2em;
+}
+
+#instrucciones{
+  width: 100%;
+  padding: 1%;
+  resize: none;
 }

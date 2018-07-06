@@ -59,4 +59,12 @@ class HomeController extends Controller
             return respose()->json(['error'=>'tagNoEncontrado']);
         }
     }
+
+    public function download(){
+        $pathToFile = public_path() . "/GameTemplate.rar";
+        $name = time().'.rar';
+        $headers = ['Content-Type: application/rar'];
+        return response()->download($pathToFile, $name, $headers);
+        
+    }
 }

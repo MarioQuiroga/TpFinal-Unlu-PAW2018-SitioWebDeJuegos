@@ -18,4 +18,11 @@ class JuegoController extends Controller
         return view('game')->with(compact('name'))
                                 ->with(compact('juego'));
     }
+
+    
+
+    public function store($id){
+
+    }
+
 }
