@@ -15,7 +15,7 @@ class UserController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth')->only(['edit','toggleFav']);
+        $this->middleware('auth')->only(['edit','toggleFav','updateRating']);
     }
 
 
@@ -40,11 +40,11 @@ class UserController extends Controller
         //    	
     	try{
     		$user = User::find($id);            
-            $jugadas = $user->getActividad();    
-            $favoritos = $user->getFavoritos();
+            /*$jugadas = $user->getActividad();
+            $favoritos = $user->getFavoritos();*/
             return view('user.profile') ->with(compact('user'))
-                                        ->with(compact('jugadas'))
-                                        ->with(compact('favoritos'));        		
+                                        /*->with(compact('jugadas'))
+                                        ->with(compact('favoritos'))*/;
     	}catch (Exception $e){
     		return view('home');
     	}
@@ -108,6 +108,17 @@ class UserController extends Controller
         if($user!=null){
             $user->toggleFavorito($game);
             return response()->json(['estado'=>$user->isFavorito(Juego::find($game))]);
+        }else{
+            return response()->json(['error'=>'usuario no logueado']);
+        }
+    }
+
+    public function updateRating(Request $request,$game){
+        $user = Auth::user();
+        $rating = $request->input('rating');
+        if($user!=null){
+            $user->updateRating(Juego::find($game),$rating);
+            return response()->json(['succes'=>'ok']);
         }else{
             return response()->json(['error'=>'usuario no logueado']);
         }

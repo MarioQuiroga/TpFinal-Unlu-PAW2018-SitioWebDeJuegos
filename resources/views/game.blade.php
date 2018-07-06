@@ -24,7 +24,7 @@
             <div class="titulo-y-creador">
                 <span class="game-title">{{$juego->titulo}}</span> by <a class="dev" href="{{url('dev/'.$juego->creador_id)}}">{{$juego->creador->nombre}}</a>
             </div>
-            {{-- <?php Auth::login(\App\User::find(1))?> --}}
+            <!-- <?php /*Auth::login(\App\User::find(1))*/?> -->
             @if(Auth::user())
                 <div class="txt-center">
                     <div class="rating">
@@ -33,11 +33,11 @@
                         @endphp
                         @for($i=5;$i>0;$i--)
                             @if($rating == $i)
-                                <input id="star{{$i}}" name="star" type="radio" value="{{$i}}" class="radio-btn hide" checked/>
+                                <input id="star{{$i}}" name="star" type="radio" value="{{$i}}" class="radio-btn hide" onclick="GameControl.updateRating(this)" checked/>
                                 <label for="star{{$i}}">☆</label>
                             @else
-                                <input id="star{{$i}}" name="star" type="radio" value="{{$i}}" class="radio-btn hide" />
-                                <label for="star{{$i}}">☆</label>
+                                <input id="star{{$i}}" name="star" type="radio" value="{{$i}}" class="radio-btn hide" onclick="GameControl.updateRating(this)"/>
+                                <label for="star{{$i}}" >☆</label>
                             @endif
                         @endfor
                         <div class="clear"></div>

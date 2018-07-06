@@ -84,4 +84,7 @@ class Juego extends Model
         $this->save();
     }
 
+    public function getRutaAvatar(){
+        return 'img/'.$this->nombre_server.'/'.$this->avatar;
+    }
 }
