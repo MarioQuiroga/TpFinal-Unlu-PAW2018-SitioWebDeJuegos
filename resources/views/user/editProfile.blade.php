@@ -4,7 +4,7 @@
 	@if (isset($user))
 		<div class="row">									
 			@if(Auth::id() == $user->id)
-				<form class="userDataForm" action="{{url('user/' . $user->id)  }}" method="post" enctype="multipart/form-data">
+				<form class="userDataForm" action="{{url('user/edit/' . $user->id)  }}" method="post" enctype="multipart/form-data">
 					@csrf
 					<div class="editAvatar">
 						<img src="{{ asset($user->avatar) }} " class="imgAvatar" id="imgAvatar"><br>
@@ -33,6 +33,6 @@
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/profile.css') }}">	
 @endsection
 
-@section('sctrips')
+@section('scripts')
 	<script type="text/javascript" src="{{ asset('js/updateImg.js') }}"></script>
 @endsection

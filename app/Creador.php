@@ -17,5 +17,8 @@ class Creador extends Model
         return $this->hasMany('App\Juego');
     }
 
+     public function avatarPath(){        
+        return '/avatarsDev/' . $this->id . '/';
+    }
 
 }

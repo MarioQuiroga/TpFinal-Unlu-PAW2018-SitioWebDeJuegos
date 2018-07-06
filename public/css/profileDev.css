@@ -1,0 +1,13 @@
+.portada{
+	border-style: solid;
+	border-width: 2px;
+	margin: 2%;
+	padding: 10px;
+	flex-basis: 90%;	
+	text-align: center;
+}
+
+.devButton{
+	margin: 2%;
+	
+}
