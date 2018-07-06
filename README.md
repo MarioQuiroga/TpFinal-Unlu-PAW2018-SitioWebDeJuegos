@@ -1,6 +1,6 @@
-# Guia de instalación
+# Guía de instalación
 
-Este sitio de juegos, se desarrolló como trabajo final para la materia Programación en ambiente web, de la lic. en Sistemas de Información, de la Universidad Nacional de Luján (Arg).
+Este sitio de juegos, se desarrolló como trabajo final para la materia Programación en Ambiente Web, de la lic. en Sistemas de Información, de la Universidad Nacional de Luján (Arg).
 A continuación, se describen las dependencias necesarias para el proyecto en su máquina local.
 
 ## PHP
