@@ -33,6 +33,7 @@ Route::get('/games/filter', 'HomeController@filter');
 
 
 
+
 /* --- Auth con otras aplicaciones, google, facebook etc -----*/
 Route::get('login/{provider}/redirect','Auth\LoginController@redirect');
 Route::get('login/{provider}/callback','Auth\LoginController@callback');
@@ -67,10 +68,17 @@ Route::post('register/dev/{id}', 'CreadorController@store'); //Registrarse como 
 Route::get('dev/edit/{id}', 'CreadorController@edit'); //Editar perfir desarrollador
 Route::post('dev/edit/{id}', 'CreadorController@update'); //Editar perfir desarrollador
 
-Route::get('dev/{id}', 'CreadorController@show'); //Registrarse como desarrollador
+Route::get('dev/{id}', 'CreadorController@show'); //Perfil desarrollador
+
 
 /*--- Juegos ---*/
-Route::get('juegos/{id}','JuegoController@show');
+Route::get('games/{id}','JuegoController@show');
 
+//Route::get('games/create/{id}', 'JuegoController@create' );
+Route::post('games/create/{id}', 'JuegoController@store' );
+
+
+/*--- Descarga Template de Juego ---*/
+Route::get('download/template/game', 'HomeController@download');
 
 /*Route::get('/home', 'HomeController@index')->name('home');*/

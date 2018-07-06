@@ -12,6 +12,9 @@ class Juego extends Model
      *
      * La imagen debe ser 1280*500
      * */
+
+    protected $guarded = [];
+
     const featured =[
         'juego1'=>'zombieFeat.jpg',
         'juego2'=>'pongFeat.jpg',

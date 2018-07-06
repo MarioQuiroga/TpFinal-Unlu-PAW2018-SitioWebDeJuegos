@@ -22,7 +22,7 @@
 						</div>	
 					@else
 						<div class="devButton">
-							<button class="button"><a href="{{ url('edit/dev/'. $user->id) }}"><b>Perfil Desarrollador</b></a></button>	
+							<button class="button"><a href="{{ url('dev/'. $user->id) }}"><b>Perfil Desarrollador</b></a></button>	
 						</div>	
 					@endif
 					<div class="devButton">
