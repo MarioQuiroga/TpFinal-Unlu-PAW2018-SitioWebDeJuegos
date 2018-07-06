@@ -87,17 +87,17 @@ class UserController extends Controller
                     $image = Image::make($filePath);
                     //Si no existe el directorio de usuario lo creo
                     File::exists(public_path() . $user->userAvatarPath()) or File::makeDirectory(public_path() . $user->userAvatarPath());
-                    $newFileName = $this->changeFileName($fileName, $user->id);                
+                    $newFileName = $this->changeFileName($fileName);                
                     $image->save(public_path() . $user->userAvatarPath() . $newFileName);
                     $user->avatar = $user->userAvatarPath() . $newFileName;
             }
 
             $user->save();
-       }
+        }
         return redirect('user/'.$id);
     }
 
-    private function changeFileName($name, $id){
+    private function changeFileName($name){
         $ext = strtolower(substr($name, strripos($name, '.') + 1));
         $filename = round(microtime(true)) . mt_rand() . '.' . $ext;
         return $filename;

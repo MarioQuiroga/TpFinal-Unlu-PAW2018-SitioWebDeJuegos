@@ -39,7 +39,7 @@
 
 
 			<label for="inputFile">Archivo .rar con el Juego</label>
-			<input type="file" name="inputFile" id="inputFile" required>
+			<input type="file" name="inputFile" id="inputGame" required>
 
 
 			<button type="submit" class="button"><b>Guardar</b></button>

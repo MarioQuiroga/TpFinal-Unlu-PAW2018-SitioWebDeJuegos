@@ -33,6 +33,6 @@
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/profile.css') }}">	
 @endsection
 
-@section('sctrips')
+@section('scripts')
 	<script type="text/javascript" src="{{ asset('js/updateImg.js') }}"></script>
 @endsection

@@ -17,6 +17,7 @@ class CreateCreadorsTable extends Migration
             $table->increments('id');
             $table->integer('user_id');
             $table->string('nombre');
+            $table->string('avatar')->default('avatars/commonAvatar.png');
             $table->timestamps();
         });
     }

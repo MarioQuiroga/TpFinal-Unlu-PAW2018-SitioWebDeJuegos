@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Creador;
 use App\Juego;
+use Illuminate\Support\Facades\Input;
+use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\File;
 
 class CreadorController extends Controller
 {
@@ -43,7 +46,6 @@ class CreadorController extends Controller
 
         $user = User::find($id);        
         if(isset($_FILES['inputFile']['name'])){
-            $fileName = $_FILES['inputFile']['name'];    
             $request->inputFile->store('juegos');
             $creador = Creador::create([
                 'user_id'=> $user->id,
@@ -52,7 +54,7 @@ class CreadorController extends Controller
             
             $name = strtolower($request->input('titulo'));
             $newFileName = round(microtime(true)) . mt_rand() . '.' . $name;
-            $creadorId = User::find($id)->creador->id;
+            $creadorId = $user->creador->id;
 
             $carbon = new \Carbon\Carbon();
             $date = $carbon->now()->format('Y-m-d');
@@ -77,7 +79,7 @@ class CreadorController extends Controller
     public function show($id){
         $creador = Creador::find($id);
         $user = User::find($creador->user_id);
-        $juegos = Juego::where('creador_id', $creador_id)->get();
+        $juegos = Juego::where('creador_id', $creador->id)->get();
         return view('creador.profileDev')->with(compact('juegos'))
                                          ->with(compact('user'))
                                          ->with(compact('creador'));
@@ -92,6 +94,11 @@ class CreadorController extends Controller
     public function edit($id)
     {
         //
+        $creador = Creador::find($id);
+        $user = User::find($creador->user_id);
+        return view('creador.editprofileDev')->with((compact('user')))
+                                             ->with((compact('creador')));
+
     }
 
     /*
@@ -102,5 +109,31 @@ class CreadorController extends Controller
     public function update(Request $request, $id)
     {
         //
+
+        $creador = Creador::find($id);
+        if ($creador !== null){
+            if(request()->input('name')!==null){
+                $creador->nombre = request()->input('name');
+            }
+
+            if (!empty($_FILES['inputFile']) && $_FILES['inputFile']['error'] == UPLOAD_ERR_OK)
+            {
+                    $filePath = $_FILES['inputFile']['tmp_name'];
+                    $fileName = $_FILES['inputFile']['name'];
+                    $image = Image::make($filePath);
+                    //Si no existe el directorio de creador lo creo
+                    File::exists(public_path() . $creador->avatarPath()) or File::makeDirectory(public_path() . $creador->avatarPath());
+
+                    $ext = strtolower(substr($fileName, strripos($fileName, '.') + 1));
+                    $newFileName = round(microtime(true)) . mt_rand() . '.' . $ext;
+                
+                    $image->save(public_path() . $creador->avatarPath() . $newFileName);
+                    $creador->avatar = $creador->avatarPath() . $newFileName;
+            }
+
+            $creador->save();
+        }
+        return redirect('dev/'.$id);
+
     }
 }

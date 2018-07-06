@@ -74,7 +74,7 @@ Route::get('dev/{id}', 'CreadorController@show'); //Perfil desarrollador
 /*--- Juegos ---*/
 Route::get('games/{id}','JuegoController@show');
 
-//Route::get('games/create/{id}', 'JuegoController@create' );
+Route::get('games/create/{id}', 'JuegoController@create' );
 Route::post('games/create/{id}', 'JuegoController@store' );
 
 

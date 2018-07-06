@@ -65,8 +65,7 @@
 				<h2>Favoritos</h2>
 				<ul>
 					@foreach ($favoritos as $favorito)
-						<li>
-							
+						<li>							
 							<img src="{{ asset('avatarGames/'.$favorito['avatarJuego']) }}">
 							<h3>{{ $favorito['name'] }}</h3>
 							<div class="profileFavorito">
