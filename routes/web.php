@@ -51,8 +51,10 @@ Auth::routes();
  */
 Route::post('juegos/{id}/score','JugadaController@update');
 
+
 //ajax toggle favorito
 Route::get('user/favs/toggle/{game}','UserController@toggleFav');
+Route::post('user/rating/{game}', 'UserController@updateRating');
 
 /*--- Perfil de Usuario ---*/
 Route::get('user/{id}','UserController@show')->name('perfil');

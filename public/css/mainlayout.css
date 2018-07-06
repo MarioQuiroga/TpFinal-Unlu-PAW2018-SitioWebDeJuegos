@@ -27,6 +27,49 @@ button{
     cursor: pointer;
 }
 
+div.login-controls{
+    display: flex;
+    align-items: center;
+
+}
+.login-controls > input[type='checkbox']{
+    margin-left: 0.1%;
+    width: auto;
+}
+.login-controls > label{
+    margin-right: 0.1%;
+}
+.login-controls > button {
+    margin-left: auto;
+}
+.btn-google{
+    margin-left: 3%;
+    width: 15%;
+    background-color: #cacaca;
+    padding: 0.8%;
+    color: black;
+    border-right: solid #0E0B16;
+    border-bottom: solid #0E0B16;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+form.login-form{
+    width: 60%;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 2em;
+}
+
+input {
+    width: 100%;
+    margin: 0.6em;
+    border-radius: 0.5em;
+    padding: 0.2em;
+    font-size: medium;
+}
+
 /*=== Separador de espadas ===*/
 .sword-separator {
     display: flex;
@@ -42,6 +85,7 @@ button{
     width: 20%;
     height: auto;
 }
+
 
 
 
@@ -121,4 +165,42 @@ div.tags{
     border-radius: 0.1rem;
     color: #cacaca;
     justify-content: space-between;
+}
+.firmas {
+    margin-right: 30px;
+    float: right;
+    text-align: right;
+}
+
+.vertical-border {
+    margin: 5px;
+    border-left: thick solid #999999;
+    border-width: thin;
+}
+
+/*---- footer ----*/
+
+footer {
+    margin-top: 15px;
+    color: aliceblue;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.links {
+    display: flex;
+    justify-content: space-between;
+    /*flex-basis: 22%;*/
+}
+
+.footerLinks {
+    display: flex;
+    flex-basis: 22%;
+    flex-direction: column;
+}
+
+.footerLinks a {
+    flex-basis: 100%;
+
 }

@@ -57,7 +57,7 @@
  .button{
  	padding: 10px;
  	border-radius: 5px;
- 	background-color: #006400;
+ 	/*background-color: #006400;*/
  	text-decoration: none;
  	color: black;
  	font-size: 1vw;
@@ -70,7 +70,7 @@
 
  .button:hover{
  	cursor: pointer;
- 	background-color: 	#32CD32;
+ 	/*background-color: 	#32CD32;*/
  }
 
  .userDataForm{

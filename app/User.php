@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Carbon\Carbon;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Juego;
@@ -34,7 +35,7 @@ class User extends Authenticatable
     }
 
     public function jugadas(){
-        return $this->hasMany('App\Jugada')->get();
+        return $this->hasMany('App\Jugada');
     }
 
     public function valoracions(){
@@ -61,6 +62,26 @@ class User extends Authenticatable
         }
         
         return $jugadas;
+    }
+
+    /**
+     * @return Carbon
+     */
+    public function fechaUltimaJugada(){
+        $ultJug=$this->jugadas()->orderBy('fecha','desc')->first();
+        if($ultJug!=null){
+            return $ultJug->fecha;
+        }
+         return Carbon::createFromFormat('Y-m-d H:i:s',$this->created_at);
+    }
+
+    public function ultimoJuegoJugado(){
+        $ultJug=$this->jugadas()->orderBy('fecha','desc')->first();
+        if($ultJug!=null){
+            return $ultJug->juego;
+        } else {
+            return null;
+        }
     }
         
     public function isCreador(){
@@ -113,5 +134,10 @@ class User extends Authenticatable
         if(Juego::where('id',$juegoId)->exists()){
             $this->favoritos()->toggle($juegoId);
         }
+    }
+
+    public function getMaxPuntaje(Juego $juego){
+        $max = $this->jugadas()->where('juego_id',$juego->id)->max('puntaje');
+        return $max;
     }
 }
