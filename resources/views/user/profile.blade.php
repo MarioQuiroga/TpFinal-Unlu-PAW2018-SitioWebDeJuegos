@@ -25,7 +25,7 @@
                     </div>
                 @endif
                 <div class="devButton">
-                    <button class="button"><a href="{{ url('edit/'. $user->id) }}"><b>Editar Perfil</b></a></button>
+                    <button class="button"><a href="{{ url('user/edit/'. $user->id) }}"><b>Editar Perfil</b></a></button>
                 </div>
 
 

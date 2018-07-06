@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Juego;
 use Illuminate\Http\Request;
 use App\Creador;
+use App\User;
 
 class JuegoController extends Controller
 {
@@ -23,15 +24,16 @@ class JuegoController extends Controller
     
     public function create($id){
         $creador = Creador::find($id);
-        return view('juego.create')->with(compact('creador'));
+        $user = User::find($creador->user_id);
+        return view('juego.create')->with(compact('user'))
+                                   ->with(compact('creador'));
 
     }
 
 
-    public function store($id){
+    public function store(Request $request, $id){
 
          $validatedData = $request->validate([
-            'nameDev' => 'required',
             'titulo' => 'required',
             'descripcion' => 'required',
             'instrucciones' => 'required',
@@ -53,7 +55,7 @@ class JuegoController extends Controller
                     'fecha_creacion'=>$date,
 
             ]);
-            return redirect('dev/' . $creador->id);            
+            return redirect('dev/' . $id);            
         }else{     
             return back()->withErrors(['msg', 'No se ha completado el registro']);
         }
