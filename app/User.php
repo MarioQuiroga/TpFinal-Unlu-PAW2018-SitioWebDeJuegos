@@ -39,11 +39,11 @@ class User extends Authenticatable
 
     public function valoracions(){
         return $this->belongsToMany('App\Juego','valoracions')
-            ->withPivot('juego_id','user_id','estrellas');
+            ->withPivot('estrellas');
     }
 
     public function favoritos(){
-        return $this->hasMany('App\Favorito');      
+        return $this->belongsToMany('App\Juego','favoritos');
     }
 
     public function getActividad(){
@@ -62,31 +62,7 @@ class User extends Authenticatable
         
         return $jugadas;
     }
-
-    public function getFavoritos(){
-        $aux = $this->favoritos();
-        $favoritos = [];
-        if (isset($aux)){
-            for ($i=0; $i < $aux->count(); $i++) { 
-                $favoritos[$i]['juego_id'] = $aux[$i]->juego_id;
-                $juego = Juego::where('juego_id',$aux[$i]->juego_id);
-                $favoritos[$i]['name'] = $juego->titulo;
-                $favoritos[$i]['rating'] = $juego->valoracions()
-                                                ->avg('estrellas');
-
-                $favoritos[$i]['userRating'] = $juego->valoracions()
-                                                    ->where('user_id', $this->id);
-
-                $favoritos[$i]['puntajeMaximo'] = Jugada::where('user_id', $this->id)
-                                                       ->where('juego_id', $aux[$i]->juego_id)
-                                                       ->max('puntaje');              
-
-                $favoritos[$i]['avatar'] = $juego['avatar'];
-            }
-        }
-        return $favoritos;
-    }
-    
+        
     public function isCreador(){
         if(count($this->creador()->get())==0){
             return false;    
@@ -134,22 +110,8 @@ class User extends Authenticatable
     }
 
     public function toggleFavorito(int $juegoId){
-        $juego = Juego::find($juegoId);
-        if($juego!=null){
-            if($this->isFavorito($juego)){
-                $this->favoritos()->save($juego);
-            }
-            else{
-            }
-        }
-
         if(Juego::where('id',$juegoId)->exists()){
-            if($this->isFavorito(Juego::find($juegoId))){
-                $this->favoritos()->detach($juegoId);
-            }else {
-                $this->favoritos()->attach($juegoId);
-            }
-
+            $this->favoritos()->toggle($juegoId);
         }
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Juego;
 use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
@@ -106,7 +107,7 @@ class UserController extends Controller
         $user = Auth::user();
         if($user!=null){
             $user->toggleFavorito($game);
-            return response()->json(['estado'=>$user->isFavorito($game)]);
+            return response()->json(['estado'=>$user->isFavorito(Juego::find($game))]);
         }else{
             return response()->json(['error'=>'usuario no logueado']);
         }

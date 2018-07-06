@@ -16,7 +16,6 @@ class Favoritos extends Migration
         Schema::create('favoritos', function (Blueprint $table) {
             $table->integer('juego_id');
             $table->integer('user_id');
-            $table->timestamp('fecha');
             $table->timestamps();
         });
     }

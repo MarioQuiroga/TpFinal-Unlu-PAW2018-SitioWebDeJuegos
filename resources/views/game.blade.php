@@ -24,7 +24,7 @@
             <div class="titulo-y-creador">
                 <span class="game-title">{{$juego->titulo}}</span> by <a class="dev" href="{{url('dev/'.$juego->creador_id)}}">{{$juego->creador->nombre}}</a>
             </div>
-            <?php Auth::login(\App\User::find(1))?>
+            {{-- <?php Auth::login(\App\User::find(1))?> --}}
             @if(Auth::user())
                 <div class="txt-center">
                     <div class="rating">
