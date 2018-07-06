@@ -69,12 +69,15 @@
                         }
                     @endphp
                     <li>
-                        <img src="{{ asset($juegoFav->getRutaAvatar()) }}">
-                        <h3>{{ $juegoFav->titulo }}</h3>
                         <div class="profileFavorito">
-                            <p>Rating global: {{ $juegoFav->valoracion_promedio }}</p>
-                            <p>Rating de {{$user->name}}:{{ $rating }}</p>
-                            <p>Máximo Puntaje: {{$user->getMaxPuntaje($juegoFav) }}</p>
+                            <img src="{{ asset($juegoFav->getRutaAvatar()) }}">
+                            <div class="datos-fav">
+                                <h3><a href="{{url('game/'. $juegoFav->nombre_server)}}">{{ $juegoFav->titulo }}</a></h3>
+
+                                <p>Rating global: {{ $juegoFav->valoracion_promedio }}</p>
+                                <p>Rating de {{$user->name}}:{{ $rating }}</p>
+                                <p>Máximo Puntaje: {{$user->getMaxPuntaje($juegoFav) }}</p>
+                            </div>
                         </div>
                     </li>
                 @endforeach

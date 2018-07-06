@@ -6,6 +6,9 @@ body{
      /*font-size: 1vw;*/
 }
 
+ul{
+    list-style: none;
+}
 
 main {
     /*margin-top: 15px;*/
@@ -26,6 +29,10 @@ button{
     border-radius: 4px;
     cursor: pointer;
 }
+button:hover{
+    cursor: pointer;
+    background-color: 	white;
+}
 
 div.login-controls{
     display: flex;
@@ -44,7 +51,7 @@ div.login-controls{
 }
 .btn-google{
     margin-left: 3%;
-    width: 15%;
+    width: 20%;
     background-color: #cacaca;
     padding: 0.8%;
     color: black;

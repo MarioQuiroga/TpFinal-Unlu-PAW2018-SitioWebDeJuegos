@@ -189,8 +189,8 @@
                         if(!lives){
                             //postear puntaje
                             GameEngine.publishScore(score);
-                            //alert("GAME OVER");
-                            //document.location.reload();
+                            alert("GAME OVER");
+                            document.location.reload();
                         }else{
                             ball.x = canvas.width/2;
                             ball.y = canvas.height-30;

@@ -124,10 +124,11 @@ img.fav-heart{
 }
 
 section.comentarios{
-    border-left: solid  #cacaca;
-    border-top: solid  #cacaca;
+    border-left: solid  white;
+    border-top: solid  white;
     border-right: solid #0E0B16;
     border-bottom: solid #0E0B16;
+    border-radius: 0.2em;
     padding: 2%;
     width: 80%;
     margin-left: auto;
@@ -136,6 +137,7 @@ section.comentarios{
     justify-content: center;
     flex-direction: column;
     word-break: break-all;
+    background-color: #cacaca;
 }
 
 div.comentario{
