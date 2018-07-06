@@ -1,30 +1,36 @@
-# Sitio Web de Juegos
+# Guía de instalación
 
-Este sitio de juegos se desarrollará como trabajo final para la materia Programación en ambiente web, de la lic. en Sistemas de Información, de la Universidad Nacional de Luján (Arg).
+Este sitio de juegos, se desarrolló como trabajo final para la materia Programación en Ambiente Web, de la lic. en Sistemas de Información, de la Universidad Nacional de Luján (Arg).
+A continuación, se describen las dependencias necesarias para el proyecto en su máquina local.
 
-## ¿Cómo subir un juego?
-Primero debes tener un usuario.
-Luego debes enviarnos tu juego con la organización de carpetas establecidas por el formato en un zip, junto con alguna descipción a nuestro correo: < email@email.rz >
+## PHP
+Descargue la ultima versión disponible de php, ingresando en el siguiente enlace: http://php.net/downloads.php
 
-### Formato del juego
-El juego debe respetar el formato propuesto en la carpeta /GameTemplate.
+## Composer
+Descargue el gestor de paquetes Composer, ingresando en el siguiente enlace: https://getcomposer.org/download/
 
-#### Css
-* No se debe valer de librerias externas.
-* Los selectores css deben utilizar una especificidad de clase o mayor.
-* Las clases deben arrancar todas con un guión bajo ' _ '.
+## Clonar y configurar el repositorio de este proyecto
+Luego de descargar este proyecto, en la carpeta raiz del proyecto buscar el archivo .env.example. Con este archivo, cree un nuevo archivo, en la misma carpeta, llamado ".env". Luego, en el archivo .env, busque y complete las siguientes lineas.
+* APP_KEY= Solicitar a los desarrolladores.  
+* DB_CONNECTION= Iniciales de su Sistema gestor de Base de Datos. Ejemplos: pgsql, mysql.
+* DB_HOST=127.0.0.1
+* DB_PORT= Puerto donde escucha el Sistema gestor de Base de Datos.
+* DB_DATABASE= Nombre de la base de datos en su máquina local.
+* DB_USERNAME= Usuario de su Sistema gestor de Base de Datos.
+* DB_PASSWORD= Contraseña de su Sistema gestor de Base de Datos.
+
+## Levantar el servicio
+Para levantar el servidor en su máquina local, abra una terminal, y ejecute los siguientes comandos.
+
+* Instalar las dependencias del proyecto através de composer:
 ``` 
-div._miDiv { ... }   
+composer install
 ```
-#### js
-* No se debe valer de librerias externas a excepción de jquery.
-* No debe estar mimificado, debe ser código leible y comentado, nosotros luego nos encargaremos de mimificarlo.
-* No debe interferir con elementos fuera del alcance de su juego.
-
-#### HTML
-* Atenerse a un div principal similar al del template.
-
-### Publicar puntaje
-Simplemente debe imitar el comportamiento del js del template cada vez que considere oportuno en el contexto de su juego, actualizar el puntaje del jugador.
-
-Cualquier otra cosa o consideración que nos facilite la revisión del juego , escríbala en el correo.
+* Migrar la base de datos a su máquina local
+``` 
+php artisan migrate --seed   
+```
+* Levantar el servidor provisto por Laravel.
+``` 
+php artisan serve 
+```
