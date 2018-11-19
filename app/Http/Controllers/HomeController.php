@@ -6,6 +6,7 @@ use App\Juego;
 use App\Tag;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -31,9 +32,11 @@ class HomeController extends Controller
         $hots = Juego::getHotGames();
         $juegos = Juego::orderBy('fecha_creacion','desc')->simplePaginate(9);
         $mainTags = Tag::getMainTags();
+        $user = Auth::user();
         return view('index')->with(compact('featured'))
                                 ->with(compact('hots'))
                                 ->with(compact('juegos'))
+                                ->with(compact('user'))
                                 ->with(compact('mainTags'));
     }
 
